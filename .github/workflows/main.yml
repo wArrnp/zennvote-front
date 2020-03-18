@@ -1,0 +1,40 @@
+name: Production Deploy
+
+on: # 이벤트 설정. master에 push되면 이벤트 발생
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout code # 깃헙에 push 된 코드를 가상 깃허브 actions 환경에 가져온다 (?)
+        uses: actions/checkout@master # 위 가상 환경으로 가져와주는 라이브러리다. 그 중 master 버전인 것 같다.
+      
+      - name: Cache node modules # node_modules 캐싱하는 구문이다.
+        uses: actions/cache@v1 # 이 역시 라이브러리
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hasFiles('**/package.lock.json') }}
+          restore-keys: |
+            ${{ runner-OS }}-build-
+            ${{ runner-OS }}-
+
+      - name: Install Dependencies
+        run: npm install
+      
+      - name: Install AWS Cli
+
+
+      - name: Create .env File
+        run: echo ${{ secrets.ENV_CONTENT }} > .env
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy on AWS
+        run: aws s3 sync ./build s3://zenn-vote-front-deploy --profile=zenn-vote-front --delete
+
+        
+      
