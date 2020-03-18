@@ -2,15 +2,15 @@ import EpisodeData from './EpisodeData';
 
 export default interface VoteData {
   problem?: number[];
-  pitch?: string[];
-  voice?: string[];
-  funny?: string[];
-  content?: string[];
-  original?: string[];
-  sleep?: string;
-  unit?: string;
-  new?: string;
-  grow?: string;
+  pitch?: EpisodeData[];
+  voice?: EpisodeData[];
+  funny?: EpisodeData[];
+  content?: EpisodeData[];
+  original?: EpisodeData[];
+  sleep?: EpisodeData[];
+  unit?: string[];
+  new?: string[];
+  grow?: string[];
   master?: string[];
   custom?: {
     episode: string;
