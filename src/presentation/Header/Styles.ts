@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import RightArrow from '../../assets/image/right.png';
-import RightArrowDim from '../../assets/image/right-dim.png';
 
 interface HeaderListItemProps {
   isCurrent?: boolean 
@@ -22,12 +20,12 @@ export const HeaderListItem = styled.span`
   position: relative;
   width: 20%;
   text-align: center;
-  color: ${(props:HeaderListItemProps) => props.isCurrent ? '#e26d59': '#bdbdbd'};
+  color: ${(props:HeaderListItemProps) => props.isCurrent ? '#0099e3': '#bdbdbd'};
   font-weight: bold;
   font-size: 18px;
 
   &::after {
-    content: '';
+    content: '-';
     display: block;
     position: absolute;
     top: 0;
@@ -35,7 +33,6 @@ export const HeaderListItem = styled.span`
     margin-right: -6px;
     width: 12px;
     height: 100%;
-    background-image: url(${(props:HeaderListItemProps) => props.isCurrent ? RightArrow: RightArrowDim});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
@@ -57,5 +54,5 @@ export const ProgressBar = styled.div`
   height: 100%;
   width: ${(props:ProgressBarProps) => props.percent}%;
   max-width: 100%;
-  background-color: #e26d59;
+  background-color: #0099e3;
 `

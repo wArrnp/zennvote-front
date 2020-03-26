@@ -13,6 +13,9 @@ const App = () => {
     <S.AppWrapper>
       <S.ContentWrapper>
         <S.ContentInnerWrapper>
+          <S.SmallHeader>
+            전국 프로듀서 노래자랑 시즌7 시상식 시청자 투표
+          </S.SmallHeader>
           { pageData !== PageData.LANDING && <Header pageData={pageData}/>}
           { RenderByPageData(pageData, setPageData) }
         </S.ContentInnerWrapper>
