@@ -22,10 +22,10 @@ jobs:
             ${{ runner-OS }}-
 
       - name: Install Dependencies
-        run: npm install
+        run: npm i
       
       - name: Install AWS Cli
-
+        run: npm i -g aws
 
       - name: Create .env File
         run: echo ${{ secrets.ENV_CONTENT }} > .env
