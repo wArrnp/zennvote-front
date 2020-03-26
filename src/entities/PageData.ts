@@ -1,7 +1,7 @@
 enum PageData {
-  LANDING = 0,
-  EMAIL_INPUT = 1,
-  VOTE = 2,
+  LANDING,
+  EMAIL_INPUT,
+  VOTE,
 }
 
 export default PageData

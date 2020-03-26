@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import PageData from '../../entities/PageData';
 import checkEmailRegex from '../../controller/CheckEmailRegex';
+import { useDispatch } from "react-redux";
+import { setEmail as setReduxEmail } from '../../modules/email';
 
 import * as S from './Styles';
 
@@ -10,13 +12,16 @@ interface EmailInputProps {
 
 const EmailInput = ({ setPageData }:EmailInputProps) => {
   const [email, setEmail] = useState('');
+  const dispatch = useDispatch();
   const onClickNext = useCallback((email) => {
     if(!checkEmailRegex(email)) {
       alert("이메일 양식이 틀렸습니다.")
       return;
     }
+
+    dispatch(setReduxEmail(email))
     setPageData(PageData.VOTE);
-  }, [setPageData])
+  }, [setPageData, dispatch])
 
   return (
     <S.EmailInputWrapper>
