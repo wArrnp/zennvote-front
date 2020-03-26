@@ -38,7 +38,6 @@ export const LandingNextButton = styled.button`
   background-color: #333;
   color: white;
   border: none;
-  border-radius: 25px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;

@@ -18,6 +18,7 @@ export const ContentInnerWrapper = styled.div`
   margin: 0 auto;
   position: relative;
   box-shadow: 0px 2px 3px 0 rgba(0,0,0,0.08);
+  border-radius: 10px;
   padding-bottom: 30px;
 `
 
