@@ -26,6 +26,7 @@ export const HeaderListItem = styled.span`
 
   &::after {
     content: '-';
+    color: #bdbdbd;
     display: block;
     position: absolute;
     top: 0;
