@@ -25,7 +25,7 @@ jobs:
         run: npm install
       
       - name: Install AWS Cli
-
+        run: pip install aws
 
       - name: Create .env File
         run: echo ${{ secrets.ENV_CONTENT }} > .env
