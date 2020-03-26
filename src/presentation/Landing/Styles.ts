@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import NextImg from '../../assets/image/up-chevron.png';
+import NextHoverImg from '../../assets/image/up-chevron-white.png';
 
 export const LandingHeader = styled.div`
   width: 418px;
@@ -27,23 +29,49 @@ export const LandingDescription = styled.p`
   width: 418px;
   line-height: 24px;
   color: #333;
+  margin-bottom: 150px;
+`
+
+const nextButtonKeyframes = keyframes`
+  0%, 28%, 56%, 100% {
+    right: 30px;
+  }
+  14%, 42% {
+    right: 20px;
+  }
 `
 
 export const LandingNextButton = styled.button`
-  display: block;
-  width: 418px;
-  height: 50px;
-  margin: 0 auto;
-  margin-top: 120px;
-  background-color: #333;
-  color: white;
-  border: none;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  animation: ${nextButtonKeyframes} 1.5s 0s infinite;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid #333;
+  background-color: #fafafa;
+  padding: 20px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
+  box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.6);
   
+  background-image: url(${NextImg});
+  background-size: 30px 30px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  transition: box-shadow 0.5s ease;
+  
+  &:hover {
+    background-color: #333;
+    background-image: url(${NextHoverImg});
+    border-color: #333;
+    box-shadow: none;
+  }
+
   &:focus {
     outline: none;
-    border: none;
   }
 `

@@ -26,7 +26,6 @@ const Landing = ({ setPageData }:LandingProps ) => {
         투표 설명에 해당하는 위치
       </S.LandingDescription>
       <S.LandingNextButton onClick={onClickNextButton}>
-        시작하기
       </S.LandingNextButton>
     </>
   );
