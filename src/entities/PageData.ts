@@ -1,6 +1,6 @@
 enum PageData {
-  LANDING = 'landing',
-  PERSONAL_INFO = 'personalInfo',
+  LANDING = 0,
+  PERSONAL_INFO = 1,
 }
 
 export default PageData

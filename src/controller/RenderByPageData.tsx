@@ -3,8 +3,8 @@ import PageData from '../entities/PageData';
 import { Landing } from '../presentation';
 
 export default function RenderByPageData(
-  viewType: string, 
-  setPageData: (pageData: string) => void
+  viewType: number, 
+  setPageData: (pageData: number) => void
 ): ReactNode {
   switch(viewType) {
     case PageData.LANDING:

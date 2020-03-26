@@ -4,7 +4,7 @@ import PageData from '../../entities/PageData';
 import * as S from './Styles'
 
 interface LandingProps {
-  setPageData: (pageData: string) => void
+  setPageData: (pageData: number) => void
 }
 
 const Landing = ({ setPageData }:LandingProps ) => {

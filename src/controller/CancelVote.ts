@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import PageData from '../entities/PageData';
 import { setVoteInit } from '../modules/vote';
 
-export default function CancelVote(setPageData: (pageData: string) => void): (event: React.MouseEvent) => any  {
+export default function CancelVote(setPageData: (pageData: number) => void): (event: React.MouseEvent) => any  {
   const dispatch = useDispatch();
   const useCancelVote = useCallback((event: React.MouseEvent) => {
     setPageData(PageData.LANDING);
