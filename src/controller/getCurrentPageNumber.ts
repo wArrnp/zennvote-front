@@ -4,8 +4,10 @@ export default function getCurrentPageNumber(pageData:number): number {
   switch (pageData) {
     case PageData.LANDING:
       return 0;
-    case PageData.PERSONAL_INFO:
+    case PageData.EMAIL_INPUT:
       return 1;
+    case PageData.VOTE:
+      return 2;
     default:
       return 1
   }

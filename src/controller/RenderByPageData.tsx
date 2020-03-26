@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import PageData from '../entities/PageData';
-import { Landing } from '../presentation';
+import { Landing, EmailInput } from '../presentation';
 
 export default function RenderByPageData(
   viewType: number, 
@@ -9,7 +9,9 @@ export default function RenderByPageData(
   switch(viewType) {
     case PageData.LANDING:
       return <Landing setPageData={setPageData} />
-    case PageData.PERSONAL_INFO:
-      return '개인 정보 입력 창'
+    case PageData.EMAIL_INPUT:
+      return <EmailInput setPageData={setPageData} />
+    case PageData.VOTE:
+      return '잉'
   }
 }

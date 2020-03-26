@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import getCurrentPageNumber from '../../controller/getCurrentPageNumber';
+import getCurrentPageNumber from '../../controller/GetCurrentPageNumber';
 
 import * as S from './Styles';
 

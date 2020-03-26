@@ -9,7 +9,7 @@ interface LandingProps {
 
 const Landing = ({ setPageData }:LandingProps ) => {
   const onClickNextButton = useCallback(() => {
-    setPageData(PageData.PERSONAL_INFO)
+    setPageData(PageData.EMAIL_INPUT)
   }, [ setPageData ]);
 
   return (
