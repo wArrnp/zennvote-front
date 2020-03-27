@@ -16,15 +16,24 @@ const Landing = ({ setPageData }:LandingProps ) => {
     <>
       <S.LandingHeader>
         <S.LandingTitle>
-          투표 타이틀 위치
+          전국 프로듀서 노래자랑 시즌 9
         </S.LandingTitle>
         <S.LandingSubTitle>
-          투표 서브 타이틀 위치
+          시청자 투표
         </S.LandingSubTitle>
       </S.LandingHeader>
       <S.LandingDescription>
-        투표 설명에 해당하는 위치
+      노래자랑 영상이나 본 방송 합쳐 적어도 5회 이상 챙겨보신 분들을 대상으로 하는 투표입니다.
+      <br />
+      <br />
+      끝까지 꼼꼼하게 작성해주실 수 있는 분만 참여부탁드립니다.
+      <br />
+      <br />
+      (참가 경험이 있는 분도 모두 투표 가능합니다. 자기에 대한 투표도 원한다면 하셔도 됩니다.)
       </S.LandingDescription>
+      <S.LandingHelper>
+        우측 상단의 돋보기 모양을 클릭하면 역대 곡목을 모두 검색할 수 있습니다. 투표에 참고하세요.
+      </S.LandingHelper>
       <S.LandingNextButton onClick={onClickNextButton}>
       </S.LandingNextButton>
     </>

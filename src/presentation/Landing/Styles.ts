@@ -3,7 +3,7 @@ import NextImg from '../../assets/image/up-chevron.png';
 import NextHoverImg from '../../assets/image/up-chevron-white.png';
 
 export const LandingHeader = styled.div`
-  width: 418px;
+  width: 550px;
   margin: auto;
   padding: 60px 0;
 `
@@ -26,10 +26,17 @@ export const LandingSubTitle = styled.h2`
 
 export const LandingDescription = styled.p`
   margin: 0 auto;
-  width: 418px;
+  width: 550px;
   line-height: 24px;
   color: #333;
   margin-bottom: 150px;
+`
+
+export const LandingHelper = styled.p`
+  width: 550px;
+  word-break: keep-all;
+  margin: 0 auto;
+  text-align: center;
 `
 
 const nextButtonKeyframes = keyframes`
