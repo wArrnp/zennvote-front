@@ -18,16 +18,16 @@ const Header = ({pageData}: HeaderProps) => {
     <>
       <S.HeaderWrapper>
         <S.HeaderListItem isCurrent={pageNumber === 1}>
-          기본정보
+          이메일 입력
         </S.HeaderListItem>
         <S.HeaderListItem isCurrent={pageNumber === 2}>
-          증상/불편
+          퀴즈
         </S.HeaderListItem>
         <S.HeaderListItem isCurrent={pageNumber === 3}>
-          생활 습관
+          투표
         </S.HeaderListItem>
         <S.HeaderListItem isCurrent={pageNumber === 4}>
-          기타
+          투표 확인
         </S.HeaderListItem>
       </S.HeaderWrapper>
       <S.ProgressWrapper>
