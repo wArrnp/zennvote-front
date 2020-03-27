@@ -60,7 +60,7 @@ export const LandingNextButton = styled.button`
   
   background-image: url(${NextImg});
   background-size: 30px 30px;
-  background-position: 50% 50%;
+  background-position: 55% 50%;
   background-repeat: no-repeat;
   transition: box-shadow 0.5s ease;
   

@@ -47,8 +47,11 @@ export const HeaderListItem = styled.span`
 `
 
 export const ProgressWrapper = styled.div`
+  width: 80%;
+  margin: 0 auto;
   height: 4px;
   background-color: #eee;
+  border-radius: 20px;
 `;
 
 export const ProgressBar = styled.div`
@@ -57,4 +60,5 @@ export const ProgressBar = styled.div`
   width: ${(props:ProgressBarProps) => props.percent}%;
   max-width: 100%;
   background-color: #0099e3;
+  border-radius: 20px;
 `

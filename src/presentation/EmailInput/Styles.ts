@@ -50,4 +50,5 @@ export const EmailInputButton = styled.button`
   background-color: ${(props: EmailInputButtonProps) => props.isNext ? "#333": "white"};
   color: ${(props: EmailInputButtonProps) => props.isNext ? 'white': "#333"};
   border: ${(props: EmailInputButtonProps) => props.isNext ? 'none': '1px solid #333'};
+  font-size: 16px;
 `
