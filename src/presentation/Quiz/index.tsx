@@ -1,10 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { QuizItem } from '../';
-import QuizData from '../../entities/QuizData';
-import { StoreState } from '../../modules';
-import { setQuizData } from '../../modules/quiz';
-import PageData from '../../entities/PageData';
+import QuizData from '../../entity/QuizData';
+import { StoreState } from '../../module';
+import { setQuizData } from '../../module/quiz';
+import PageData from '../../entity/PageData';
 
 import * as S from './Styles';
 

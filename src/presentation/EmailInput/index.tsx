@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import PageData from '../../entities/PageData';
+import PageData from '../../entity/PageData';
 import checkEmailRegex from '../../controller/CheckEmailRegex';
 import { useDispatch, useSelector } from "react-redux";
-import { setEmail as setReduxEmail } from '../../modules/email';
-import { StoreState } from '../../modules';
+import { setEmail as setReduxEmail } from '../../module/email';
+import { StoreState } from '../../module';
 
 import * as S from './Styles';
 

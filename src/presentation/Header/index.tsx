@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import getCurrentPageNumber from '../../controller/GetCurrentPageNumber';
+import GetCurrentPageNumber from '../../controller/GetCurrentPageNumber';
 
 import * as S from './Styles';
 
@@ -11,7 +11,7 @@ const Header = ({pageData}: HeaderProps) => {
   const [ pageNumber, setPageNumber ] = useState(1);
 
   useEffect(() => {
-    setPageNumber(getCurrentPageNumber(pageData))
+    setPageNumber(GetCurrentPageNumber(pageData))
   }, [pageData])
   
   return (

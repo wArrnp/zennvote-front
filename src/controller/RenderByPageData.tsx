@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import PageData from '../entities/PageData';
+import PageData from '../entity/PageData';
 import { Landing, EmailInput, Quiz } from '../presentation';
 
 export default function RenderByPageData(

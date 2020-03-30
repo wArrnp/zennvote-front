@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import PageData from '../../entities/PageData';
+import PageData from '../../entity/PageData';
 
 import * as S from './Styles'
 

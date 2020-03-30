@@ -1,6 +1,6 @@
-import PageData from "../entities/PageData";
+import PageData from "../entity/PageData";
 
-export default function getCurrentPageNumber(pageData:number): number {
+export default function GetCurrentPageNumber(pageData:number): number {
   switch (pageData) {
     case PageData.LANDING:
       return 0;
@@ -8,6 +8,8 @@ export default function getCurrentPageNumber(pageData:number): number {
       return 1;
     case PageData.QUIZ:
       return 2;
+    case PageData.VOTE:
+      return 3;
     default:
       return 1
   }

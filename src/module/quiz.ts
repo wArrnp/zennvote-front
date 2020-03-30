@@ -1,4 +1,4 @@
-import QuizData from "../entities/QuizData";
+import QuizData from "../entity/QuizData";
 
 export interface IQuiz {
   quizDatas: QuizData[];

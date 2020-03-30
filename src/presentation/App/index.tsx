@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PageData from '../../entities/PageData'
+import PageData from '../../entity/PageData'
 import Footer from '../Footer';
 import RenderByPageData from '../../controller/RenderByPageData';
 import { Header } from '../';

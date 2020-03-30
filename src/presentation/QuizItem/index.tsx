@@ -1,5 +1,5 @@
 import React from 'react';
-import QuizData from '../../entities/QuizData';
+import QuizData from '../../entity/QuizData';
 
 import * as S from './Styles';
 

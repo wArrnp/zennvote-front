@@ -10,7 +10,6 @@ export const QuizWrapper = styled.div`
   padding-top: 36px;
   padding-bottom: 30px;
   margin: 0 auto;
-  position: relative;
 `
 
 export const QuizContentWrapper = styled.div`

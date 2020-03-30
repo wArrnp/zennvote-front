@@ -1,4 +1,4 @@
-import VoteData from "../entities/VoteData"
+import VoteData from "../entity/VoteData"
 
 const initialState:VoteData = {
 
