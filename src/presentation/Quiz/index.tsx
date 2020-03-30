@@ -5,6 +5,7 @@ import QuizData from '../../entity/QuizData';
 import { StoreState } from '../../module';
 import { setQuizData } from '../../module/quiz';
 import PageData from '../../entity/PageData';
+import { getQuizDatas } from '../../controller/Api';
 
 import * as S from './Styles';
 
@@ -28,22 +29,11 @@ const Quiz = ({ setPageData }: QuizProps) => {
       setSelectedQuizValues(reduxSelectedQuizValues);
       return;
     }
-    const newQuizzes = [
-      {
-        title: '퀴즈 아이템 테스트',
-        choices: ['구구구', '구구구구', '구구구구구'],
-      },
-      {
-        title: '두번째 퀴즈 아이템 테스트',
-        choices: ['멍멍멍', '멍멍멍멍', '멍멍멍멍멍', '멍멍멍멍멍멍'],
-      },
-      {
-        title: '세번째 퀴즈 아이템 테스트',
-        choices: ['야옹야옹', '야옹야옹야옹', '야옹야옹야옹야옹', '야옹야옹야옹야옹야옹', '야옹야옹야옹야옹야옹야옹'],
-      },
-    ];
-    setQuizzes(newQuizzes);
-    setSelectedQuizValues(new Array(newQuizzes.length).fill(-1));
+    getQuizDatas()
+      .then((res:QuizData[]) => {
+        setQuizzes(res);
+        setSelectedQuizValues(new Array(res.length).fill(-1));
+      })
   }, [quizDatas, reduxSelectedQuizValues]);
 
   const handleQuizValues = useCallback((event: React.ChangeEvent<HTMLInputElement>, index: number) => {
