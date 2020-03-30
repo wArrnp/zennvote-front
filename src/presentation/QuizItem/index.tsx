@@ -20,9 +20,9 @@ const QuizItem = ({ title, choices, selectedIndex, handleQuizSelect }: QuizItemP
             <S.QuizItemRadioButton 
               type="radio" 
               name={title} 
-              value={index} 
+              value={index + 1} 
               onChange={(e) => handleQuizSelect(e)}
-              checked={selectedIndex === index} />
+              checked={selectedIndex === (index + 1)} />
             {choice}
           </S.QuizItemLabel>
         ))
