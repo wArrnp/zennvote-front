@@ -1,8 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import PageData from '../../entities/PageData';
 import checkEmailRegex from '../../controller/CheckEmailRegex';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setEmail as setReduxEmail } from '../../modules/email';
+import { StoreState } from '../../modules';
 
 import * as S from './Styles';
 
@@ -13,6 +14,14 @@ interface EmailInputProps {
 const EmailInput = ({ setPageData }:EmailInputProps) => {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
+  const { emailByRedux } = useSelector((state: StoreState) => ({ emailByRedux: state.email}))
+
+  useEffect(() => {
+    if(!!emailByRedux) {
+      setEmail(emailByRedux);
+    }
+  }, [emailByRedux])
+
   const onClickNext = useCallback((email) => {
     if(!checkEmailRegex(email)) {
       alert("이메일 양식이 틀렸습니다.")
@@ -20,7 +29,7 @@ const EmailInput = ({ setPageData }:EmailInputProps) => {
     }
 
     dispatch(setReduxEmail(email))
-    setPageData(PageData.VOTE);
+    setPageData(PageData.QUIZ);
   }, [setPageData, dispatch])
 
   return (

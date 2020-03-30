@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import PageData from '../entities/PageData';
-import { Landing, EmailInput } from '../presentation';
+import { Landing, EmailInput, Quiz } from '../presentation';
 
 export default function RenderByPageData(
   viewType: number, 
@@ -11,7 +11,9 @@ export default function RenderByPageData(
       return <Landing setPageData={setPageData} />
     case PageData.EMAIL_INPUT:
       return <EmailInput setPageData={setPageData} />
+    case PageData.QUIZ:
+      return <Quiz setPageData={setPageData}/>
     case PageData.VOTE:
-      return '잉'
+      return '123'
   }
 }

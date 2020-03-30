@@ -2,10 +2,15 @@ import styled, { keyframes } from 'styled-components'
 import NextImg from '../../assets/image/up-chevron.png';
 import NextHoverImg from '../../assets/image/up-chevron-white.png';
 
+const InnerWidth = 700
+
 export const LandingHeader = styled.div`
-  width: 550px;
+  width: ${InnerWidth}px;
   margin: auto;
-  padding: 60px 0;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #333;
+  margin-bottom:30px;
 `
 
 export const LandingTitle = styled.h2`
@@ -26,14 +31,14 @@ export const LandingSubTitle = styled.h2`
 
 export const LandingDescription = styled.p`
   margin: 0 auto;
-  width: 550px;
+  width: ${InnerWidth}px;
   line-height: 24px;
   color: #333;
   margin-bottom: 150px;
 `
 
 export const LandingHelper = styled.p`
-  width: 550px;
+  width: ${InnerWidth}px;
   word-break: keep-all;
   margin: 0 auto;
   text-align: center;

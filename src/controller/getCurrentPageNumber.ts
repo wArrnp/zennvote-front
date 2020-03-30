@@ -6,7 +6,7 @@ export default function getCurrentPageNumber(pageData:number): number {
       return 0;
     case PageData.EMAIL_INPUT:
       return 1;
-    case PageData.VOTE:
+    case PageData.QUIZ:
       return 2;
     default:
       return 1

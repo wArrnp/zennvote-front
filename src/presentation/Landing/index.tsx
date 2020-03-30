@@ -25,7 +25,6 @@ const Landing = ({ setPageData }:LandingProps ) => {
       <S.LandingDescription>
       노래자랑 영상이나 본 방송 합쳐 적어도 5회 이상 챙겨보신 분들을 대상으로 하는 투표입니다.
       <br />
-      <br />
       끝까지 꼼꼼하게 작성해주실 수 있는 분만 참여부탁드립니다.
       <br />
       <br />
