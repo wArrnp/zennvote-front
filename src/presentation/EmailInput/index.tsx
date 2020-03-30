@@ -4,6 +4,7 @@ import checkEmailRegex from '../../controller/CheckEmailRegex';
 import { useDispatch, useSelector } from "react-redux";
 import { setEmail as setReduxEmail } from '../../module/email';
 import { StoreState } from '../../module';
+import * as Alert from '../../util/Alert';
 
 import * as S from './Styles';
 
@@ -14,23 +15,23 @@ interface EmailInputProps {
 const EmailInput = ({ setPageData }:EmailInputProps) => {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
-  const { emailByRedux } = useSelector((state: StoreState) => ({ emailByRedux: state.email}))
+  const { emailByRedux } = useSelector((state: StoreState) => ({ emailByRedux: state.email}));
 
   useEffect(() => {
     if(!!emailByRedux) {
       setEmail(emailByRedux);
     }
-  }, [emailByRedux])
+  }, [emailByRedux]);
 
   const onClickNext = useCallback((email) => {
     if(!checkEmailRegex(email)) {
-      alert("이메일 양식이 틀렸습니다.")
+      Alert.error("이메일 양식이 틀렸습니다.")
       return;
     }
 
     dispatch(setReduxEmail(email))
     setPageData(PageData.QUIZ);
-  }, [setPageData, dispatch])
+  }, [setPageData, dispatch]);
 
   return (
     <S.EmailInputWrapper>
