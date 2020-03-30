@@ -65,19 +65,17 @@ const Quiz = ({ setPageData }: QuizProps) => {
   return (
     <S.QuizWrapper>
       <S.QuizContentWrapper>
-        <S.QuizContentInnerWrapper pageIndex={currentPageIndex}>
-          {quizzes.map((quiz, index) => (
+        {
+          !!quizzes && quizzes.length !== 0 && !!quizzes[currentPageIndex] && (
             <QuizItem
-              key={`${quiz.title}-${index}`}
-              title={quiz.title} 
-              choices={quiz.choices}
-              calculatedPagePosition={(index - currentPageIndex) *100}
-              selectedIndex={selectedQuizValues[index]}
-              handleQuizSelect={
-                (event: React.ChangeEvent<HTMLInputElement>) => handleQuizValues(event, index)
-              } />
-          ))}
-        </S.QuizContentInnerWrapper>
+            title={quizzes[currentPageIndex].title} 
+            choices={quizzes[currentPageIndex].choices}
+            selectedIndex={selectedQuizValues[currentPageIndex]}
+            handleQuizSelect={
+              (event: React.ChangeEvent<HTMLInputElement>) => handleQuizValues(event, currentPageIndex)
+            } />
+          )
+        }
       </S.QuizContentWrapper>
       <S.QuizButtonWrapper>
         <S.QuizButton 

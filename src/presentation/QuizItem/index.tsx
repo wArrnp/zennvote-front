@@ -4,7 +4,6 @@ import QuizData from '../../entities/QuizData';
 import * as S from './Styles';
 
 interface QuizItemProps extends QuizData {
-  calculatedPagePosition: number;
   selectedIndex:number;
   handleQuizSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
