@@ -53,16 +53,17 @@ const Quiz = ({ setPageData }: QuizProps) => {
   }, [selectedQuizValues]);
 
   const handleClickController = useCallback((increase: number) => {
-    if ((currentPageIndex + increase) < 0 || (currentPageIndex + increase) >= quizzes.length) {
+    const increasedIndex = currentPageIndex + increase;
+    if (increasedIndex < 0 || increasedIndex >= quizzes.length) {
       dispatch(setQuizData(quizzes, selectedQuizValues));
-      if ((currentPageIndex + increase) < 0) {
+      if (increasedIndex < 0) {
         setPageData(PageData.EMAIL_INPUT);
-      } else if ((currentPageIndex + increase) >= quizzes.length) {
+      } else if (increasedIndex >= quizzes.length) {
         setPageData(PageData.VOTE);
       }
       return false;
     }
-    setCurrentPageIndex(currentPageIndex + increase)
+    setCurrentPageIndex(increasedIndex)
   }, [currentPageIndex, quizzes, setCurrentPageIndex, dispatch, selectedQuizValues, setPageData]);
 
   return (
