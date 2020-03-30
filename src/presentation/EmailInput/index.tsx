@@ -15,7 +15,9 @@ interface EmailInputProps {
 const EmailInput = ({ setPageData }:EmailInputProps) => {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
-  const { emailByRedux } = useSelector((state: StoreState) => ({ emailByRedux: state.email}));
+  const { emailByRedux } = useSelector((state: StoreState) => (
+    { emailByRedux: state.email }
+  ));
 
   useEffect(() => {
     if(!!emailByRedux) {
