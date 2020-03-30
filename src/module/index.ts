@@ -7,11 +7,11 @@ import quiz, { IQuiz } from './quiz';
 export interface StoreState {
   vote: VoteData,
   email: string,
-  quiz: IQuiz
+  quiz: IQuiz,
 }
 
 export default combineReducers<StoreState>({
   vote,
   email,
-  quiz
-})
+  quiz,
+});

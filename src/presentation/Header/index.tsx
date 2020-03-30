@@ -4,15 +4,15 @@ import GetCurrentPageNumber from '../../controller/GetCurrentPageNumber';
 import * as S from './Styles';
 
 interface HeaderProps {
-  pageData: number
+  pageData: number;
 }
 
 const Header = ({pageData}: HeaderProps) => {
   const [ pageNumber, setPageNumber ] = useState(1);
 
   useEffect(() => {
-    setPageNumber(GetCurrentPageNumber(pageData))
-  }, [pageData])
+    setPageNumber(GetCurrentPageNumber(pageData));
+  }, [pageData]);
   
   return (
     <>

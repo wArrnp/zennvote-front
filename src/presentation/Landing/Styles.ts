@@ -1,8 +1,8 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components';
 import NextImg from '../../assets/image/up-chevron.png';
 import NextHoverImg from '../../assets/image/up-chevron-white.png';
 
-const InnerWidth = 700
+const InnerWidth = 700;
 
 export const LandingHeader = styled.div`
   width: ${InnerWidth}px;
@@ -11,7 +11,7 @@ export const LandingHeader = styled.div`
   padding-bottom: 30px;
   border-bottom: 1px solid #333;
   margin-bottom:30px;
-`
+`;
 
 export const LandingTitle = styled.h2`
   margin: 0;
@@ -20,14 +20,14 @@ export const LandingTitle = styled.h2`
   font-weight: 300;
   padding-bottom: 10px;
   color: #333;
-`
+`;
 
 export const LandingSubTitle = styled.h2`
   margin: 0;
   color: #333;
   font-size: 30px;
   font-weight: bold;
-`
+`;
 
 export const LandingDescription = styled.p`
   margin: 0 auto;
@@ -35,14 +35,14 @@ export const LandingDescription = styled.p`
   line-height: 24px;
   color: #333;
   margin-bottom: 150px;
-`
+`;
 
 export const LandingHelper = styled.p`
   width: ${InnerWidth}px;
   word-break: keep-all;
   margin: 0 auto;
   text-align: center;
-`
+`;
 
 const nextButtonKeyframes = keyframes`
   0%, 28%, 56%, 100% {
@@ -51,7 +51,7 @@ const nextButtonKeyframes = keyframes`
   14%, 42% {
     right: 20px;
   }
-`
+`;
 
 export const LandingNextButton = styled.button`
   width: 80px;
@@ -86,4 +86,4 @@ export const LandingNextButton = styled.button`
   &:focus {
     outline: none;
   }
-`
+`;

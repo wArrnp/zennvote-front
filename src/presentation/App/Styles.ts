@@ -9,7 +9,7 @@ export const AppWrapper = styled.div`
 export const ContentWrapper = styled.div`
   padding-top: 40px;
   margin-bottom: 120px;
-`
+`;
 
 export const ContentInnerWrapper = styled.div`
   width: 940px;
@@ -20,11 +20,11 @@ export const ContentInnerWrapper = styled.div`
   box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   padding-bottom: 30px;
-`
+`;
 
 export const SmallHeader = styled.div`
   padding: 20px 30px;
   box-shadow: 0px 5px 3px -3px rgba(0, 0, 0, 0.08);
   text-align: center;
   color: #777;
-`
+`;

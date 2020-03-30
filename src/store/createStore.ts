@@ -8,8 +8,8 @@ const composeEnhancers =
 export default function configureStore():Store<StoreState> {
     const store = createStore(
       modules,
-      composeEnhancers(applyMiddleware(ReduxThunk))
-    )
+      composeEnhancers(applyMiddleware(ReduxThunk)),
+    );
 
-    return store
+    return store;
 };

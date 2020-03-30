@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 interface HeaderListItemProps {
-  isCurrent?: boolean 
+  isCurrent?: boolean;
 }
 
 interface ProgressBarProps {
-  percent: number
+  percent: number;
 }
 
 export const HeaderWrapper = styled.div`
@@ -14,7 +14,7 @@ export const HeaderWrapper = styled.div`
   height: 91px;
   justify-content: center;
   align-items: center; 
-`
+`;
 
 export const HeaderListItem = styled.span`
   position: relative;
@@ -44,7 +44,7 @@ export const HeaderListItem = styled.span`
       display: none;
     }
   }
-`
+`;
 
 export const ProgressWrapper = styled.div`
   width: 80%;
@@ -61,4 +61,4 @@ export const ProgressBar = styled.div`
   max-width: 100%;
   background-color: #0099e3;
   border-radius: 20px;
-`
+`;

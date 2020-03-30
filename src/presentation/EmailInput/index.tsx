@@ -9,7 +9,7 @@ import * as Alert from '../../util/Alert';
 import * as S from './Styles';
 
 interface EmailInputProps {
-  setPageData: (pageData: number) => void
+  setPageData: (pageData: number) => void;
 }
 
 const EmailInput = ({ setPageData }:EmailInputProps) => {
@@ -27,11 +27,11 @@ const EmailInput = ({ setPageData }:EmailInputProps) => {
 
   const onClickNext = useCallback((email) => {
     if(!checkEmailRegex(email)) {
-      Alert.error("이메일 양식이 틀렸습니다.")
+      Alert.error("이메일 양식이 틀렸습니다.");
       return;
     }
 
-    dispatch(setReduxEmail(email))
+    dispatch(setReduxEmail(email));
     setPageData(PageData.QUIZ);
   }, [setPageData, dispatch]);
 

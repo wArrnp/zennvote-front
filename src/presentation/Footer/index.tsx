@@ -10,7 +10,7 @@ const FooterWrapper = styled.p`
   text-align : center;
   font-weight: 500;
   color: #848484;
-`
+`;
 
 const Footer = () => {
   return (

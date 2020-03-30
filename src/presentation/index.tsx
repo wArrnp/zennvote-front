@@ -6,4 +6,12 @@ import EmailInput from './EmailInput';
 import Quiz from './Quiz';
 import QuizItem from './QuizItem';
 
-export { App, Footer, Landing, Header, EmailInput, Quiz, QuizItem }
+export { 
+  App,
+  Footer,
+  Landing,
+  Header,
+  EmailInput,
+  Quiz,
+  QuizItem,
+};

@@ -10,12 +10,12 @@ import { getQuizDatas } from '../../controller/Api';
 import * as S from './Styles';
 
 interface QuizProps {
-  setPageData: (pageData: number) => void
+  setPageData: (pageData: number) => void;
 }
 
 const Quiz = ({ setPageData }: QuizProps) => {
   const [selectedQuizValues, setSelectedQuizValues] = useState<number[]>([]);
-  const [quizzes, setQuizzes] = useState<QuizData[]>([])
+  const [quizzes, setQuizzes] = useState<QuizData[]>([]);
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
   const dispatch = useDispatch();
   const { quizDatas, reduxSelectedQuizValues } = useSelector((state: StoreState) => ({
@@ -33,7 +33,7 @@ const Quiz = ({ setPageData }: QuizProps) => {
       .then((res:QuizData[]) => {
         setQuizzes(res);
         setSelectedQuizValues(new Array(res.length).fill(-1));
-      })
+      });
   }, [quizDatas, reduxSelectedQuizValues]);
 
   const handleQuizValues = useCallback((event: React.ChangeEvent<HTMLInputElement>, index: number) => {
@@ -53,7 +53,7 @@ const Quiz = ({ setPageData }: QuizProps) => {
       }
       return false;
     }
-    setCurrentPageIndex(increasedIndex)
+    setCurrentPageIndex(increasedIndex);
   }, [currentPageIndex, quizzes, setCurrentPageIndex, dispatch, selectedQuizValues, setPageData]);
 
   return (

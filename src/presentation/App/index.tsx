@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   button {
     cursor: pointer;
   }
-`
+`;
 
 
 const App = () => {

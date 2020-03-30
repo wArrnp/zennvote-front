@@ -11,6 +11,6 @@ export default function GetCurrentPageNumber(pageData:number): number {
     case PageData.VOTE:
       return 3;
     default:
-      return 1
-  }
-}
+      return 1;
+  };
+};

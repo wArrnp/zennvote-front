@@ -1,15 +1,15 @@
 import React, { useCallback } from 'react';
 import PageData from '../../entity/PageData';
 
-import * as S from './Styles'
+import * as S from './Styles';
 
 interface LandingProps {
-  setPageData: (pageData: number) => void
+  setPageData: (pageData: number) => void;
 }
 
 const Landing = ({ setPageData }:LandingProps ) => {
   const onClickNextButton = useCallback(() => {
-    setPageData(PageData.EMAIL_INPUT)
+    setPageData(PageData.EMAIL_INPUT);
   }, [ setPageData ]);
 
   return (
