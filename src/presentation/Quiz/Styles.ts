@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+const innerWidth = 670;
+
 interface QuizContentInnerWrapperProps {
   pageIndex: number;
 }
@@ -16,7 +18,7 @@ export const QuizWrapper = styled.div`
 `
 
 export const QuizContentWrapper = styled.div`
-  width: 670px;
+  width: ${innerWidth}px;
   margin: 0 auto;
   overflow: hidden;
 `
@@ -30,7 +32,7 @@ export const QuizContentInnerWrapper = styled.div`
 
 export const QuizButtonWrapper = styled.div`
   display: flex;
-  width: 670px;
+  width: ${innerWidth}px;
   justify-content: space-between;
   margin: auto;
   margin-top: 30px;

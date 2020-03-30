@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
+const InnerWidth = 670;
+
 interface EmailInputButtonProps {
   isNext: boolean
 }
 
 export const EmailInputWrapper = styled.div`
-  width: 670px;
+  width: ${InnerWidth}px;
   padding-top: 36px;
   padding-bottom: 30px;
   margin: 0 auto;
