@@ -1,8 +1,10 @@
 import React from 'react';
-import { PitchVoteCard, VoiceVoteCard, FunnyVoteCard, ContentVoteCard, OriginalVoteCard } from '../presentation';
+import { PitchVoteCard, VoiceVoteCard, FunnyVoteCard, ContentVoteCard, OriginalVoteCard, VoteFivePartDescription } from '../presentation';
 
 export default function(pageIndex:number): React.ReactNode {
   switch(pageIndex) {
+    case 0:
+      return <VoteFivePartDescription />
     case 1:
       return <PitchVoteCard />
     case 2:

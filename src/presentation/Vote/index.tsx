@@ -1,11 +1,16 @@
 import React from 'react';
+import { VoteFivePart } from '../'
 
 import './Styles';
 
-const Vote = () => {
+interface VoteProps {
+  setPageData: (pageData:number) => void;
+}
+
+const Vote = ({setPageData}: VoteProps) => {
   return (
     <div>
-      
+      <VoteFivePart />  
     </div>
   );
 };
