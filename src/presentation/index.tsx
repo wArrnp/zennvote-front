@@ -13,6 +13,7 @@ import ContentVoteCard from './VoteCards/ContentVoteCard';
 import OriginalVoteCard from './VoteCards/OriginalVoteCard';
 import VoteFivePart from './Vote/VoteFivePart/index';
 import VoteFivePartDescription from './Vote/VoteFivePartDescription';
+import EpisodeVote from './VotePolls/EpisodeVote';
 
 export { 
   App,
@@ -30,4 +31,5 @@ export {
   OriginalVoteCard,
   VoteFivePart,
   VoteFivePartDescription,
+  EpisodeVote
 };
