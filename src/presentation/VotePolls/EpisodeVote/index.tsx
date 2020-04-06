@@ -1,23 +1,20 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import EpisodeData from '../../../entity/EpisodeData';
 
 import * as S from './Styles';
 
 interface EpisodeVoteProps {
   confirmEpisodeVote: (values: EpisodeData[]) => void;
-  voteCount: number;
+  voteReduxData: any;
 }
 
 
-const EpisodeVote = ({ confirmEpisodeVote, voteCount }: EpisodeVoteProps) => {
-  const [voteData, setVoteData] = useState<EpisodeData[]>(new Array(voteCount).fill(-1).map((v,i) => {
-    return {
-      episode: 0,
-      index: 0,
-      song: '',
-      producer: ''
-    }
-  }));
+const EpisodeVote = ({ confirmEpisodeVote, voteReduxData }: EpisodeVoteProps) => {
+  const [voteData, setVoteData] = useState<EpisodeData[]>([]);
+
+  useEffect(() => {
+    setVoteData(voteReduxData);
+  }, [voteReduxData])
 
   const handleChangeInput = useCallback((key, value, index) => {
     const newArray = [...voteData];

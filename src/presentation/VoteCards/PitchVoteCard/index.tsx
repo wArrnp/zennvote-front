@@ -1,12 +1,20 @@
 import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { EpisodeVote } from '../../';
+import { StoreState } from '../../../module';
+import { setVoteByKeyValue } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
 const PitchVoteCard = () => {
-  const confirmEpisodeVote = useCallback((d) => {
-    console.log(d);
-  }, []);
+  const dispatch = useDispatch();
+  const { pitch } = useSelector((state:StoreState) => ({
+    pitch: state.vote.pitch
+  }));
+
+  const confirmEpisodeVote = useCallback((pitch) => {
+    dispatch(setVoteByKeyValue('pitch', pitch));
+  }, [dispatch]);
 
   return (
     <CS.VoteCardsWrapper>
@@ -25,7 +33,7 @@ const PitchVoteCard = () => {
       <CS.VoteCardsDivision />
       <EpisodeVote
         confirmEpisodeVote={confirmEpisodeVote}
-        voteCount={5}/>
+        voteReduxData={pitch} />
     </CS.VoteCardsWrapper>
   );
 };
