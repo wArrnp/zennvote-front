@@ -28,7 +28,32 @@ const initialState:VoteData = {
       song: '',
       producer: ''
     }],
-  voice: [],
+  voice: [{
+    episode: 0,
+    index: 0,
+    song: '',
+    producer: ''
+  },{
+    episode: 0,
+    index: 0,
+    song: '',
+    producer: ''
+  },{
+    episode: 0,
+    index: 0,
+    song: '',
+    producer: ''
+  },{
+    episode: 0,
+    index: 0,
+    song: '',
+    producer: ''
+  },{
+    episode: 0,
+    index: 0,
+    song: '',
+    producer: ''
+  }],
   funny: [],
   content: [],
   original: [],
