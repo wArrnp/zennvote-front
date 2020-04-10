@@ -21,7 +21,7 @@ const VoiceVoteCard = () => {
       <CS.VoteCardsIndex>두번째 부문</CS.VoteCardsIndex>
       <CS.VoteCardsTitle>
         이 목소리 실화..?! 
-        <b>멋진 목소리의 프로듀서 상</b>
+        <CS.VoteCardsTitleBold>멋진 목소리의 프로듀서 상</CS.VoteCardsTitleBold>
       </CS.VoteCardsTitle>
       <CS.VoteCardsDescription>
         내가 생각하기에 가장 멋지거나 아름답다고 생각하는 목소리를 지닌 프로듀서분을 뽑아주세요.<br/>

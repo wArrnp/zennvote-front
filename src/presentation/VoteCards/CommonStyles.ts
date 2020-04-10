@@ -19,6 +19,10 @@ export const VoteCardsTitle = styled.h2`
   margin-bottom: 10px;
 `
 
+export const VoteCardsTitleBold = styled.b`
+  margin-left: 10px;
+`
+
 export const VoteCardsDescription = styled.p`
   margin: 0 0 8px 0;
 `

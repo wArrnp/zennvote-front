@@ -27,18 +27,70 @@ const initialState:VoteData = {
       index: 0,
       song: '',
       producer: ''
-    }],
+    }
+  ],
   voice: [{
-    episode: 0,
-    index: 0,
-    song: '',
-    producer: ''
-  },{
-    episode: 0,
-    index: 0,
-    song: '',
-    producer: ''
-  },{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    },{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    },{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    },{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    },{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    }
+  ],
+  funny: [{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    },{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    },{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    }
+  ],
+  content: [{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    },{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    },{
+      episode: 0,
+      index: 0,
+      song: '',
+      producer: ''
+    }
+  ],
+  original: [{
     episode: 0,
     index: 0,
     song: '',
@@ -54,9 +106,6 @@ const initialState:VoteData = {
     song: '',
     producer: ''
   }],
-  funny: [],
-  content: [],
-  original: [],
   sleep: [],
   unit: [],
   new: [],

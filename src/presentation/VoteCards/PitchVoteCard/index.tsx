@@ -21,7 +21,7 @@ const PitchVoteCard = () => {
       <CS.VoteCardsIndex>첫번째 부문</CS.VoteCardsIndex>
       <CS.VoteCardsTitle>
         이 성대가 대단하다! 
-        <b>가창력이 뛰어난 프로듀서 상</b>
+        <CS.VoteCardsTitleBold>가창력이 뛰어난 프로듀서 상</CS.VoteCardsTitleBold>
       </CS.VoteCardsTitle>
       <CS.VoteCardsDescription>
         내 생각에 가장 가창력이 뛰어난 것 같다고 생각하는 프로듀서분을 뽑아주세요.<br/>
