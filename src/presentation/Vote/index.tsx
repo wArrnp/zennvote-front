@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { VoteFivePart } from '../'
 import PageData from '../../entity/PageData';
+import RenderVoteByIndex from '../../controller/RenderVoteByIndex';
 
 import './Styles';
 
@@ -24,7 +25,7 @@ const Vote = ({setPageData}: VoteProps) => {
   
   return (
     <div>
-      <VoteFivePart handleVotePart={handleVotePart}/>  
+      { RenderVoteByIndex(votePartIndex, handleVotePart) } 
     </div>
   );
 };

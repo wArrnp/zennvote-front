@@ -11,9 +11,11 @@ import VoiceVoteCard from './VoteCards/VoiceVoteCard';
 import FunnyVoteCard from './VoteCards/FunnyVoteCard';
 import ContentVoteCard from './VoteCards/ContentVoteCard';
 import OriginalVoteCard from './VoteCards/OriginalVoteCard';
-import VoteFivePart from './Vote/VoteFivePart/index';
+import VoteFivePart from './Vote/VoteFivePart';
 import VoteFivePartDescription from './Vote/VoteFivePartDescription';
 import EpisodeVote from './VotePolls/EpisodeVote';
+import VotePopular from './Vote/VotePopular';
+
 
 export { 
   App,
@@ -31,5 +33,6 @@ export {
   OriginalVoteCard,
   VoteFivePart,
   VoteFivePartDescription,
-  EpisodeVote
+  EpisodeVote,
+  VotePopular
 };

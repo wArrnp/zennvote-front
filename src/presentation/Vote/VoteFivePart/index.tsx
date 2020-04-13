@@ -3,11 +3,11 @@ import RenderToVoteFivePart from '../../../controller/RenderToVoteFivePart';
 
 import * as S from './Styles';
 
-interface VoteFivePart {
+interface VoteFivePartProps {
   handleVotePart: (increase:number) => void;
 }
 
-const VoteFivePart = ({handleVotePart}:VoteFivePart) => {
+const VoteFivePart = ({handleVotePart}:VoteFivePartProps) => {
   const [pageStep, setPageStep] = useState(0);
 
   const handleClickButton = useCallback((increase: number) => {
