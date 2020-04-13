@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import { VoteFivePart } from '../'
 import PageData from '../../entity/PageData';
 import RenderVoteByIndex from '../../controller/RenderVoteByIndex';
 
