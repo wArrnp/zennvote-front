@@ -106,7 +106,22 @@ const initialState:VoteData = {
     song: '',
     producer: ''
   }],
-  sleep: [],
+  sleep: [{
+    episode: 0,
+    index: 0,
+    song: '',
+    producer: ''
+  },{
+    episode: 0,
+    index: 0,
+    song: '',
+    producer: ''
+  },{
+    episode: 0,
+    index: 0,
+    song: '',
+    producer: ''
+  }],
   unit: [],
   new: [],
   grow: [],
