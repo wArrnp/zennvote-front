@@ -6,6 +6,7 @@ import { StoreState } from '../../module';
 import { setQuizData } from '../../module/quiz';
 import PageData from '../../entity/PageData';
 import { getQuizDatas } from '../../controller/Api';
+import * as Alert from '../../util/Alert';
 
 import * as S from './Styles';
 
@@ -49,6 +50,10 @@ const Quiz = ({ setPageData }: QuizProps) => {
       if (increasedIndex < 0) {
         setPageData(PageData.EMAIL_INPUT);
       } else if (increasedIndex >= quizzes.length) {
+        if(selectedQuizValues.filter((v) => v === -1).length !== 0) {
+          Alert.error("참가하지 않은 퀴즈가 있습니다.");
+          return false
+        }
         setPageData(PageData.VOTE);
       }
       return false;
