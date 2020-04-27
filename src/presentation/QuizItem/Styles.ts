@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
-const checkedColor = "#3C9870"
+import styled from "styled-components";
+import { mainColor } from '../Colors';
 
 export const QuizItemWrapper = styled.div`
   display: inline-block;
@@ -11,6 +10,7 @@ export const QuizItemWrapper = styled.div`
 
 export const QuizItemTitle = styled.p`
   font-size: 20px;
+  font-weight: bold;
   margin: 0;
   margin-bottom: 25px;
 `;
@@ -34,7 +34,7 @@ export const QuizItemRadioButton = styled.input`
 
   &:checked {
     appearance: none;
-    background-color: ${checkedColor};
+    background-color: ${mainColor};
     border: none;
   }
 `;
