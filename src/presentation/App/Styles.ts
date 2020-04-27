@@ -1,4 +1,22 @@
-import styled from 'styled-components';
+import styled,  { createGlobalStyle } from 'styled-components';
+
+interface ContentWrapperProps {
+  enableSearch: boolean
+}
+
+interface SeachWrapperProps {
+  enableSearch: boolean
+}
+
+export const GlobalStyle = createGlobalStyle`
+  * {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  button {
+    cursor: pointer;
+  }
+`;
 
 export const AppWrapper = styled.div`
   position: relative;
@@ -8,6 +26,8 @@ export const AppWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   padding-top: 40px;
+  padding-right: ${(props:ContentWrapperProps) => props.enableSearch ? "20%": "0"};
+  transition: padding-right 0.5s;
   margin-bottom: 120px;
 `;
 
@@ -28,3 +48,53 @@ export const SmallHeader = styled.div`
   text-align: center;
   color: #777;
 `;
+
+export const SearchWrapper = styled.div`
+  z-index: 2;
+  display: inline-block;
+  position: fixed;
+  width: 20%;
+  height: 100vh;
+  right: ${(props:SeachWrapperProps) => props.enableSearch ? "0": "-20%"};
+  transition: right 0.5s;
+  top: 0;
+  background-color: white;
+`
+
+export const SearchToggleButton = styled.button`
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  width: 50px;
+  height: 55px;
+  background: pink;
+  border: none;
+  outline: none;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-bottom: 25px solid pink;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-top: 25px solid pink;
+  }
+`
+
+export const SearchToggleButtonImg = styled.img`
+  width: 30px;
+  height: auto;
+`
