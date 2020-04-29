@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mainColor } from '../Colors';
 
 interface HeaderListItemProps {
   isCurrent?: boolean;
@@ -20,7 +21,7 @@ export const HeaderListItem = styled.span`
   position: relative;
   width: 20%;
   text-align: center;
-  color: ${(props:HeaderListItemProps) => props.isCurrent ? '#0099e3': '#bdbdbd'};
+  color: ${(props:HeaderListItemProps) => props.isCurrent ? mainColor: '#bdbdbd'};
   font-weight: bold;
   font-size: 18px;
 
@@ -59,6 +60,6 @@ export const ProgressBar = styled.div`
   transition: width 0.5s;
   width: ${(props:ProgressBarProps) => props.percent}%;
   max-width: 100%;
-  background-color: #0099e3;
+  background-color: ${mainColor};
   border-radius: 20px;
 `;

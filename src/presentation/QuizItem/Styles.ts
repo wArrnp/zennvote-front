@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { mainColor } from '../Colors';
 
 export const QuizItemWrapper = styled.div`
   display: inline-block;
@@ -9,15 +10,31 @@ export const QuizItemWrapper = styled.div`
 
 export const QuizItemTitle = styled.p`
   font-size: 20px;
+  font-weight: bold;
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 `;
 
 export const QuizItemLabel = styled.label`
-  display: block;
+  display: flex;
   cursor: pointer;
+  align-items: center;
+  margin-bottom: 10px;
 `;
 
 export const QuizItemRadioButton = styled.input`
-  margin-right: 10px;
+  margin: 0 10px 0 0;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: white;
+  outline: none;
+  border: 1px solid grey;
+
+  &:checked {
+    appearance: none;
+    background-color: ${mainColor};
+    border: none;
+  }
 `;
