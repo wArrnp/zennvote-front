@@ -1,4 +1,5 @@
 import styled,  { createGlobalStyle } from 'styled-components';
+import { mainColor } from '../Colors';
 
 interface ContentWrapperProps {
   enableSearch: boolean
@@ -67,7 +68,7 @@ export const SearchToggleButton = styled.button`
   left: -50px;
   width: 50px;
   height: 55px;
-  background: pink;
+  background: ${mainColor};
   border: none;
   outline: none;
 
@@ -79,7 +80,7 @@ export const SearchToggleButton = styled.button`
     width: 0;
     height: 0;
     border-left: 50px solid transparent;
-    border-bottom: 25px solid pink;
+    border-bottom: 25px solid ${mainColor};
   }
 
   &:after {
@@ -90,7 +91,7 @@ export const SearchToggleButton = styled.button`
     width: 0;
     height: 0;
     border-left: 50px solid transparent;
-    border-top: 25px solid pink;
+    border-top: 25px solid ${mainColor};
   }
 `
 
