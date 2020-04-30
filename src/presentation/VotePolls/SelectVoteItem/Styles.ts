@@ -32,3 +32,37 @@ export const SelectVoteItemDropdown = styled.div`
     width: 100%;
     top: 100%;
 `
+
+export const SelectVoteItemSearch = styled.input`
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    padding: 10px 5px;
+    background-color: white;
+`
+
+export const SelectVoteItemDropdownList = styled.div`
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid black;
+    border-top: none;
+    background-color: white;
+`
+
+export const SelectVoteItemDropdownItem = styled.p`
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 5px;
+    margin: 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    
+    &:nth-of-type(1) {
+        border-top: none;
+    }
+
+    &:nth-last-of-type(1) {
+        border-bottom: none;
+    }
+`

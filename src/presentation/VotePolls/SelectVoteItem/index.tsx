@@ -6,9 +6,10 @@ import * as S from './Styles';
 interface SelectVoteItemProps {
     selectList: string[];
     selectedValue: string;
+    handleChangeSetVoteList: (value: string) => void;
 }
 
-const SelectVoteItem = ({ selectList, selectedValue = "" }: SelectVoteItemProps) => {
+const SelectVoteItem = ({ selectList, selectedValue = "" , handleChangeSetVoteList}: SelectVoteItemProps) => {
     const [searchKeyword, setSearchKeyword] = useState<string>("");
     const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
@@ -32,7 +33,16 @@ const SelectVoteItem = ({ selectList, selectedValue = "" }: SelectVoteItemProps)
                     alt='toggle'/>
             </S.SelectVoteItemValueWrapper>
             <S.SelectVoteItemDropdown>
-
+                <S.SelectVoteItemSearch onChange={(e) => setSearchKeyword(e.target.value)} />
+                <S.SelectVoteItemDropdownList>
+                    {
+                        selectList.filter(v => v.indexOf(searchKeyword) !== -1).map((selectValue: string) => (
+                            <S.SelectVoteItemDropdownItem onClick={(e) => handleChangeSetVoteList(selectValue)}>
+                                {selectValue}
+                            </S.SelectVoteItemDropdownItem>
+                        ))
+                    }
+                </S.SelectVoteItemDropdownList>
             </S.SelectVoteItemDropdown>
         </S.SelectVoteItemWrapper>
     )
