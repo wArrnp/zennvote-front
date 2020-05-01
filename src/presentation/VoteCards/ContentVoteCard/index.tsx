@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { EpisodeVote } from '../../';
 import { StoreState } from '../../../module';
 import { setVoteByKeyValue } from '../../../module/vote';
+import FetchVoteEpisode from '../../../controller/FetchVoteEpisode';
 
 import * as CS from '../CommonStyles';
 
@@ -13,7 +14,23 @@ const ContentVoteCard = () => {
   }));
 
   const confirmEpisodeVote = useCallback((content) => {
-    dispatch(setVoteByKeyValue('content', content));
+    const fetchedContent = [...content];
+    Promise.all(fetchedContent.map(d => FetchVoteEpisode(d.episode, d.index)))
+      .then(values => {
+        values.forEach((value: any, index: number) => {
+          if(value.isNotFound === false) {
+            fetchedContent[index].error = "존재하지 않는 투고 정보입니다.";
+          } else {
+            if(value.votable) {
+              fetchedContent[index].song = value.song;
+              fetchedContent[index].producer = value.producer;
+            } else {
+              fetchedContent[index].error = "투표 대상이 아닙니다.";
+            }
+          }
+        })
+        dispatch(setVoteByKeyValue('content', fetchedContent));
+      });
   }, [dispatch]);
 
   return (

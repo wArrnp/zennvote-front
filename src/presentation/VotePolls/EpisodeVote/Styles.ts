@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface EpisodeVoteStatusProps {
+  isError: boolean;
+}
+
 export const EpisodeVoteWrapper = styled.div`
   padding: 10px;
   text-align: right;
@@ -18,6 +22,9 @@ export const EpisodeVoteInput = styled.input`
   padding: 10px 15px;
   width: 60px;
   margin-right: 5px;
+`
+export const EpisodeVoteStatus = styled.span`
+  color: ${(props:EpisodeVoteStatusProps) => props.isError? "red": "black"}
 `
 
 export const EpisodeVoteConfirm = styled.button`
