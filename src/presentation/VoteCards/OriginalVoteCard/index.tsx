@@ -2,8 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EpisodeVote } from '../../';
 import { StoreState } from '../../../module';
-import { setVoteByKeyValue } from '../../../module/vote';
-import FetchVoteEpisodes from '../../../controller/FetchVoteEpisodes';
+import { setVoteByKeyValueThunk } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
@@ -14,9 +13,11 @@ const OriginalVoteCard = () => {
   }));
 
   const confirmEpisodeVote = useCallback((original) => {
-    FetchVoteEpisodes(
-      original,
-      (fetchedOriginal) => dispatch(setVoteByKeyValue('original', fetchedOriginal))
+    dispatch(
+      setVoteByKeyValueThunk(
+        original,
+        'original'
+      )
     )
 
   }, [dispatch]);

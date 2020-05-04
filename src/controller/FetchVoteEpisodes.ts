@@ -13,9 +13,9 @@ function FetchVoteEpisode(episode: number, index: number) {
         });
 }
 
-export default function FetchVoteEpisodes(episodeVoteData: EpisodeData[], callback: (fetchedData: EpisodeData[]) => void) {
+export default function FetchVoteEpisodes(episodeVoteData: EpisodeData[]) {
     const willFetchData = [...episodeVoteData]
-    Promise.all(willFetchData.map(d => FetchVoteEpisode(d.episode, d.index)))
+    return Promise.all(willFetchData.map(d => FetchVoteEpisode(d.episode, d.index)))
         .then(values => {
             values.forEach((value: any, index: number) => {
                 if(value.isNotFound === false) {
@@ -30,6 +30,6 @@ export default function FetchVoteEpisodes(episodeVoteData: EpisodeData[], callba
                 }
             })
 
-            callback(willFetchData);
+            return willFetchData
         });
 }
