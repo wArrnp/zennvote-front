@@ -43,6 +43,13 @@ const EpisodeVote = ({ confirmEpisodeVote, voteReduxData }: EpisodeVoteProps) =>
                 value={data.index} />
               번
             </S.EpisodeVoteInputWrapper>
+            {(!!data.error || !!data.song) && (
+              <S.EpisodeVoteStatus isError={!!data.error}>
+                {!!data.error? 
+                  data.error
+                  : `${data.producer}의 ${data.song}`}
+              </S.EpisodeVoteStatus>
+            )}
           </S.EpisodeVote>
         ))
       }

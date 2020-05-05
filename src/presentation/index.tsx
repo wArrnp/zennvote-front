@@ -16,6 +16,8 @@ import VoteFivePartDescription from './Vote/VoteFivePartDescription';
 import EpisodeVote from './VotePolls/EpisodeVote';
 import VotePopular from './Vote/VotePopular';
 import VotePopularDescription from './Vote/VotePopularDescription';
+import SelectVote from './VotePolls/SelectVote';
+import SelectVoteItem from './VotePolls/SelectVoteItem';
 
 
 export { 
@@ -36,5 +38,7 @@ export {
   VoteFivePartDescription,
   EpisodeVote,
   VotePopular,
-  VotePopularDescription
+  VotePopularDescription,
+  SelectVote,
+  SelectVoteItem,
 };

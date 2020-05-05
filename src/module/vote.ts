@@ -1,4 +1,6 @@
 import VoteData from "../entity/VoteData";
+import EpisodeData from "../entity/EpisodeData";
+import FetchVoteEpisodes from "../controller/FetchVoteEpisodes";
 
 const initialState:VoteData = {
   problem: [],
@@ -146,6 +148,16 @@ export const setVoteByKeyValue = (key: string, value:any[]) => ({
 export type VoteActionType = 
   ReturnType<typeof setVoteInit> |
   ReturnType<typeof setVoteByKeyValue>;
+
+export const setVoteByKeyValueThunk = (
+  episodeVoteData: EpisodeData[],
+  episodeName: string
+) => (dispatch: any): void => {
+  FetchVoteEpisodes(episodeVoteData)
+    .then(fetchedData => {
+      dispatch(setVoteByKeyValue(episodeName, fetchedData));
+    });
+}
 
 export default function reducer(state:VoteData = initialState, action:VoteActionType): VoteData {
   switch (action.type) {

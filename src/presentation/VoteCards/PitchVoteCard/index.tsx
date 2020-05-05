@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EpisodeVote } from '../../';
 import { StoreState } from '../../../module';
-import { setVoteByKeyValue } from '../../../module/vote';
+import { setVoteByKeyValueThunk } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
@@ -13,7 +13,13 @@ const PitchVoteCard = () => {
   }));
 
   const confirmEpisodeVote = useCallback((pitch) => {
-    dispatch(setVoteByKeyValue('pitch', pitch));
+    dispatch(
+      setVoteByKeyValueThunk(
+        pitch,
+        'pitch'
+      )
+    );
+
   }, [dispatch]);
 
   return (
