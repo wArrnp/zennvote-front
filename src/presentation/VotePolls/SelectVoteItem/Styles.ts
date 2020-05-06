@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
 export const SelectVoteItemWrapper = styled.div`
+    box-sizing: border-box;    
     position: relative;
+
+    * {
+        box-sizing: border-box;    
+    }
 `
 
 export const SelectVoteItemValueWrapper = styled.p`
     display: flex;
-    width: 300px;
+    width: 100%;
     border: 1px solid black;
+    align-items: center;
 `
 
 export const SelectVoteItemValue = styled.span`
@@ -16,6 +22,7 @@ export const SelectVoteItemValue = styled.span`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: 0 10px;
 `
 
 export const SelectVoteItemToggleImg = styled.img`
@@ -31,14 +38,17 @@ export const SelectVoteItemDropdown = styled.div`
     position: absolute;
     width: 100%;
     top: 100%;
+    background-color: white;
+    z-index: 2;
 `
 
 export const SelectVoteItemSearch = styled.input`
     width: 100%;
     box-sizing: border-box;
     border: 1px solid black;
-    padding: 10px 5px;
+    padding: 15px 5px;
     background-color: white;
+    font-size: 16px;
 `
 
 export const SelectVoteItemDropdownList = styled.div`
@@ -55,7 +65,6 @@ export const SelectVoteItemDropdownItem = styled.p`
     box-sizing: border-box;
     padding: 10px 5px;
     margin: 0;
-    border-top: 1px solid black;
     border-bottom: 1px solid black;
     
     &:nth-of-type(1) {

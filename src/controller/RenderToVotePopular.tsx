@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { VotePopularDescription } from "../presentation";
-import SleepVoteCard from "../presentation/VoteCards/SleepVoteCard";
+import { SleepVoteCard, NewVoteCard } from "../presentation";
 
 export default function (pageStep:number):ReactNode {
     switch(pageStep) {
@@ -8,5 +8,7 @@ export default function (pageStep:number):ReactNode {
             return <VotePopularDescription />
         case 1:
             return <SleepVoteCard />
+        case 2:
+            return <NewVoteCard />
     }
 }

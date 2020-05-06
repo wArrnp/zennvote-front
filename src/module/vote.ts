@@ -125,7 +125,7 @@ const initialState:VoteData = {
     producer: ''
   }],
   unit: [],
-  new: [],
+  new: ['', '', ''],
   grow: [],
   master: [],
   custom: [],

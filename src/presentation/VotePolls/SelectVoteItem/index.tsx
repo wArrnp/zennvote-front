@@ -21,29 +21,40 @@ const SelectVoteItem = ({ selectList, selectedValue = "" , handleChangeSetVoteLi
         [setShowDropdown, setSearchKeyword, showDropdown],
     )
 
+    const handleClickDropdownItem = useCallback(
+        (value) => {
+            handleChangeSetVoteList(value);
+            setShowDropdown(false);
+        }, 
+        [handleChangeSetVoteList, setShowDropdown],
+    )
+
     return (
         <S.SelectVoteItemWrapper>
-            <S.SelectVoteItemValueWrapper>
+            <S.SelectVoteItemValueWrapper onClick={onClickToggleDropdown}>
                 <S.SelectVoteItemValue>
                     {selectedValue}
                 </S.SelectVoteItemValue>
                 <S.SelectVoteItemToggleImg
                     src={ToggleImg}
-                    onClick={onClickToggleDropdown}
                     alt='toggle'/>
             </S.SelectVoteItemValueWrapper>
-            <S.SelectVoteItemDropdown>
-                <S.SelectVoteItemSearch onChange={(e) => setSearchKeyword(e.target.value)} />
-                <S.SelectVoteItemDropdownList>
-                    {
-                        selectList.filter(v => v.indexOf(searchKeyword) !== -1).map((selectValue: string) => (
-                            <S.SelectVoteItemDropdownItem onClick={(e) => handleChangeSetVoteList(selectValue)}>
-                                {selectValue}
-                            </S.SelectVoteItemDropdownItem>
-                        ))
-                    }
-                </S.SelectVoteItemDropdownList>
-            </S.SelectVoteItemDropdown>
+            {
+                    showDropdown && (           
+                        <S.SelectVoteItemDropdown>
+                            <S.SelectVoteItemSearch onChange={(e) => setSearchKeyword(e.target.value)} placeholder="검색어를 입력하세요."/>
+                            <S.SelectVoteItemDropdownList>
+                                {
+                                    selectList.filter(v => v.indexOf(searchKeyword) !== -1).map((selectValue: string) => (
+                                        <S.SelectVoteItemDropdownItem key={selectValue} onClick={(e) => handleClickDropdownItem(selectValue)}>
+                                            {selectValue}
+                                        </S.SelectVoteItemDropdownItem>
+                                    ))
+                                }
+                            </S.SelectVoteItemDropdownList>
+                        </S.SelectVoteItemDropdown>
+                    )
+                }
         </S.SelectVoteItemWrapper>
     )
 }

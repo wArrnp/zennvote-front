@@ -1,14 +1,18 @@
 import React, { useState, useCallback } from 'react';
 import { SelectVoteItem } from '../../';
 
+import * as S from './Styles';
+
 interface SelectVoteProps {
     maximumSelect: number;
     minimumSelect?: number;
     selectList: string[];
+    reduxValue: string[] | undefined;
+    confirmSelectVote: (voteData: string[]) => void;
 }
 
-const SelectVote = ({ maximumSelect, minimumSelect, selectList }: SelectVoteProps) => {
-    const [voteList, setVoteList] = useState<string[]>(new Array(maximumSelect).fill(""));
+const SelectVote = ({ maximumSelect, minimumSelect, selectList, reduxValue, confirmSelectVote }: SelectVoteProps) => {
+    const [voteList, setVoteList] = useState<string[]>(reduxValue || []);
 
     const handleChangeSetVoteList = useCallback(
         (index: number, value: string) => {
@@ -23,9 +27,14 @@ const SelectVote = ({ maximumSelect, minimumSelect, selectList }: SelectVoteProp
         <>
             {
                 voteList.map((voteValue: string, index: number) => (
-                    <SelectVoteItem selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]} selectedValue={voteValue} handleChangeSetVoteList={(v: string) => handleChangeSetVoteList(index, v)}/>
+                    <SelectVoteItem key={`${index}-${voteValue}`} selectList={selectList} selectedValue={voteValue} handleChangeSetVoteList={(v: string) => handleChangeSetVoteList(index, v)}/>
                 ))
             }
+            <S.SelectVoteConfirmWrapper>
+                <S.SelectVoteConfirm onClick={() => confirmSelectVote(voteList)}>
+                    적용
+                </S.SelectVoteConfirm>
+            </S.SelectVoteConfirmWrapper>
         </>
     )
 }
