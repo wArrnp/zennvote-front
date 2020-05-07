@@ -3,7 +3,7 @@ import EpisodeData from '../entity/EpisodeData';
 import VoteData from '../entity/VoteData';
 
 function FetchVoteEpisode(episode: number, index: number) {
-    return axios.get(process.env.REACT_APP_SERVER_URL + `/api/search/episode?episode=${episode}&index=${index}`)
+    return axios.get(process.env.REACT_APP_SERVER_URL + `/search/episode?episode=${episode}&index=${index}`)
         .then(res => res.data.result)
         .catch(err => {
             if(err.response.status === 404) {
