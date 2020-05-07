@@ -16,7 +16,8 @@ const OriginalVoteCard = () => {
     dispatch(
       setVoteByKeyValueThunk(
         original,
-        'original'
+        'original',
+        true
       )
     )
 

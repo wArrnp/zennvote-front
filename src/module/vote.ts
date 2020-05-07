@@ -151,9 +151,11 @@ export type VoteActionType =
 
 export const setVoteByKeyValueThunk = (
   episodeVoteData: EpisodeData[],
-  episodeName: string
-) => (dispatch: any): void => {
-  FetchVoteEpisodes(episodeVoteData)
+  episodeName: string,
+  checkOverlap: boolean
+) => (dispatch: any, getState: any): void => {
+  const { vote } = getState();
+  FetchVoteEpisodes(episodeVoteData, checkOverlap, vote, episodeName)
     .then(fetchedData => {
       dispatch(setVoteByKeyValue(episodeName, fetchedData));
     });

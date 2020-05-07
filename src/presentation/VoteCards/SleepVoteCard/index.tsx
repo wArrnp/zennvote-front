@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EpisodeVote } from '../../';
 import { StoreState } from '../../../module';
-import { setVoteByKeyValue } from '../../../module/vote';
+import { setVoteByKeyValueThunk } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
@@ -13,7 +13,11 @@ const SleepVoteCard = () => {
   }));
 
   const confirmEpisodeVote = useCallback((sleep) => {
-    dispatch(setVoteByKeyValue('sleep', sleep));
+    dispatch(setVoteByKeyValueThunk(
+      sleep,
+      'sleep',
+      false
+    ));
   }, [dispatch]);
 
   return (

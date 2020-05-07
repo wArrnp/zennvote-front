@@ -16,7 +16,6 @@ export const LandingHeader = styled.div`
 export const LandingTitle = styled.h2`
   margin: 0;
   font-size: 30px;
-  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 300;
   padding-bottom: 10px;
   color: #333;

@@ -5,4 +5,5 @@ export default interface EpisodeData {
   producer: string;
   votable?: boolean;
   error?: string;
+  overlapped?: boolean;
 }

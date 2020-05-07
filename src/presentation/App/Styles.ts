@@ -1,17 +1,34 @@
-import styled,  { createGlobalStyle } from 'styled-components';
-import { mainColor } from '../Colors';
+import styled, { createGlobalStyle } from "styled-components";
+import { mainColor } from "../Colors";
 
 interface ContentWrapperProps {
-  enableSearch: boolean
+  enableSearch: boolean;
 }
 
 interface SeachWrapperProps {
-  enableSearch: boolean
+  enableSearch: boolean;
 }
 
 export const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: "S-CoreDream";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "S-CoreDream";
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff')
+      format("woff");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+
   * {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'S-CoreDream', sans-serif;
   }
 
   button {
@@ -27,7 +44,8 @@ export const AppWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   padding-top: 40px;
-  padding-right: ${(props:ContentWrapperProps) => props.enableSearch ? "20%": "0"};
+  padding-right: ${(props: ContentWrapperProps) =>
+    props.enableSearch ? "20%" : "0"};
   transition: padding-right 0.5s;
   margin-bottom: 120px;
 `;
@@ -56,11 +74,11 @@ export const SearchWrapper = styled.div`
   position: fixed;
   width: 20%;
   height: 100vh;
-  right: ${(props:SeachWrapperProps) => props.enableSearch ? "0": "-20%"};
+  right: ${(props: SeachWrapperProps) => (props.enableSearch ? "0" : "-20%")};
   transition: right 0.5s;
   top: 0;
   background-color: white;
-`
+`;
 
 export const SearchToggleButton = styled.button`
   position: absolute;
@@ -93,9 +111,9 @@ export const SearchToggleButton = styled.button`
     border-left: 50px solid transparent;
     border-top: 25px solid ${mainColor};
   }
-`
+`;
 
 export const SearchToggleButtonImg = styled.img`
   width: 30px;
   height: auto;
-`
+`;

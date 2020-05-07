@@ -16,7 +16,8 @@ const ContentVoteCard = () => {
     dispatch(
       setVoteByKeyValueThunk(
         content, 
-        'content'
+        'content',
+        true
       )
     );
 

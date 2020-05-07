@@ -47,7 +47,18 @@ const EpisodeVote = ({ confirmEpisodeVote, voteReduxData }: EpisodeVoteProps) =>
               <S.EpisodeVoteStatus isError={!!data.error}>
                 {!!data.error? 
                   data.error
-                  : `${data.producer}의 ${data.song}`}
+                  : (
+                    <>
+                      <span>{data.song}</span>
+                      <S.EpisodeVoteProducer isOverlapped={false}>{data.producer}</S.EpisodeVoteProducer>
+                      {
+                        data.overlapped && (
+                          <S.EpisodeVoteProducer isOverlapped={true}>{"중복된 프로듀서가 있습니다."}</S.EpisodeVoteProducer>
+                        )
+                      }
+                    </>
+                  )}
+                    
               </S.EpisodeVoteStatus>
             )}
           </S.EpisodeVote>

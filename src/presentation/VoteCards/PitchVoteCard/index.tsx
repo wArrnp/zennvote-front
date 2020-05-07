@@ -16,7 +16,8 @@ const PitchVoteCard = () => {
     dispatch(
       setVoteByKeyValueThunk(
         pitch,
-        'pitch'
+        'pitch',
+        true
       )
     );
 

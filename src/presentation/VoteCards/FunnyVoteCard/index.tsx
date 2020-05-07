@@ -16,7 +16,8 @@ const FunnyVoteCard = () => {
     dispatch(
       setVoteByKeyValueThunk(
         funny,
-        'funny'
+        'funny',
+        true
       )
     );
 

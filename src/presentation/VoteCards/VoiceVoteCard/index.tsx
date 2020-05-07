@@ -16,7 +16,8 @@ const VoiceVoteCard = () => {
     dispatch(
       setVoteByKeyValueThunk(
         voice,
-        'voice'
+        'voice',
+        true
       )
     );
 
