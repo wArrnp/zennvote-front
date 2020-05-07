@@ -8,7 +8,7 @@ interface QuizItemProps extends QuizData {
   handleQuizSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const QuizItem = ({ title, choices, selectedIndex, handleQuizSelect }: QuizItemProps) => {
+const QuizItem = ({ title, contents: choices, selectedIndex, handleQuizSelect }: QuizItemProps) => {
   return (
     <S.QuizItemWrapper>
       <S.QuizItemTitle>
