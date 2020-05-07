@@ -31,7 +31,7 @@ const Quiz = ({ setPageData }: QuizProps) => {
       return;
     }
     getQuizDatas()
-      .then((res:QuizData[]) => {
+      .then((res:any) => {
         setQuizzes(res);
         setSelectedQuizValues(new Array(res.length).fill(-1));
       });
@@ -68,7 +68,7 @@ const Quiz = ({ setPageData }: QuizProps) => {
           (quizzes?.length ?? 0) !== 0 && !!quizzes[currentPageIndex] && (
             <QuizItem
               title={quizzes[currentPageIndex].title}
-              choices={quizzes[currentPageIndex].choices}
+              contents={quizzes[currentPageIndex].contents}
               selectedIndex={selectedQuizValues[currentPageIndex]}
               handleQuizSelect={
                 (event: React.ChangeEvent<HTMLInputElement>) => handleQuizValues(event, currentPageIndex)
