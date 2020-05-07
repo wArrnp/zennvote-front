@@ -23,6 +23,7 @@ const SelectVote = ({ maximumSelect, minimumSelect, selectList, reduxValue, conf
         },
         [voteList, setVoteList],
     )
+    console.log(voteList);
     return (
         <>
             {

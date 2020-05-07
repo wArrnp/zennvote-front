@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { VotePopularDescription } from "../presentation";
+import { VotePopularDescription, GrowVoteCard, UnitVoteCard } from "../presentation";
 import { SleepVoteCard, NewVoteCard } from "../presentation";
 
 export default function (pageStep:number):ReactNode {
@@ -10,5 +10,9 @@ export default function (pageStep:number):ReactNode {
             return <SleepVoteCard />
         case 2:
             return <NewVoteCard />
+        case 3:
+            return <GrowVoteCard />
+        case 4:
+            return <UnitVoteCard />
     }
 }

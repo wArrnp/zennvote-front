@@ -14,7 +14,7 @@ const VotePopular = ({handleVotePart}:VotePopularProps) => {
         const increasedPageStep = pageStep + increase;
         if(increasedPageStep < 0) {
             handleVotePart(-1);
-        } else if(increasedPageStep > 5) {
+        } else if(increasedPageStep > 4) {
             handleVotePart(1);
         } else {
             setPageStep(increasedPageStep);

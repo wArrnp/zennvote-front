@@ -124,10 +124,10 @@ const initialState:VoteData = {
     song: '',
     producer: ''
   }],
-  unit: [],
+  unit: ['', '', ''],
   new: ['', '', ''],
-  grow: [],
-  master: [],
+  grow: ['', '', ''],
+  master: [''],
   custom: [],
   message: [],
 };

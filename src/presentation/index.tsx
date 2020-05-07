@@ -13,6 +13,9 @@ import ContentVoteCard from './VoteCards/ContentVoteCard';
 import OriginalVoteCard from './VoteCards/OriginalVoteCard';
 import SleepVoteCard from './VoteCards/SleepVoteCard';
 import NewVoteCard from './VoteCards/NewVoteCard';
+import GrowVoteCard from './VoteCards/GrowVoteCard';
+import UnitVoteCard from './VoteCards/UnitVoteCard';
+import MasterVoteCard from './VoteCards/MasterVoteCard';
 import VoteFivePart from './Vote/VoteFivePart';
 import VoteFivePartDescription from './Vote/VoteFivePartDescription';
 import EpisodeVote from './VotePolls/EpisodeVote';
@@ -20,6 +23,8 @@ import VotePopular from './Vote/VotePopular';
 import VotePopularDescription from './Vote/VotePopularDescription';
 import SelectVote from './VotePolls/SelectVote';
 import SelectVoteItem from './VotePolls/SelectVoteItem';
+import VoteMaster from './Vote/VoteMaster';
+import VoteMasterDescription from './Vote/VoteMasterDescription';
 
 
 export { 
@@ -45,4 +50,9 @@ export {
   VotePopularDescription,
   SelectVote,
   SelectVoteItem,
+  GrowVoteCard,
+  UnitVoteCard,
+  MasterVoteCard,
+  VoteMaster,
+  VoteMasterDescription,
 };
