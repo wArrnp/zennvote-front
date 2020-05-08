@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { StoreState } from '../../../module';
 
 import * as S from './Styles';
-import { VoteCustomDescription, DumVoteCard } from '../../';
+import { VoteCustomDescription, CustomVoteCard } from '../../';
 import { setVoteByKeyValue } from '../../../module/vote';
 
 interface VoteCustomProps {
@@ -20,9 +20,12 @@ const VoteCustom: React.FC<VoteCustomProps> = ({ handleVotePart }) => {
         custom: state.vote.custom
     }))
 
-    const handleSubmitEdit = useCallback((episode: string, content: string) => {
+    const handleSubmitEdit = useCallback((episode: number, index: number,  content: string) => {
         const newCustom = [...custom, {
-            episode,
+            episode: {
+                episode,
+                index
+            },
             content,
         }];
 
@@ -39,8 +42,7 @@ const VoteCustom: React.FC<VoteCustomProps> = ({ handleVotePart }) => {
     return (
         <S.VoteCustomWrapper>
             <VoteCustomDescription />
-            <DumVoteCard 
-                topPlaceholder="에피소드를 입력하세요"
+            <CustomVoteCard 
                 dumDataList={custom}
                 handleSubmitEdit={handleSubmitEdit}
                 handleDeleteByIndex={handleDeleteByIndex}

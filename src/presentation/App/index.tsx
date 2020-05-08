@@ -19,7 +19,7 @@ const App = () => {
       <S.GlobalStyle />
       <S.ContentWrapper enableSearch={enableSearch}>
         <S.ContentInnerWrapper>
-          { pageData !== PageData.LANDING && <Header pageData={pageData}/>}
+          { pageData !== PageData.LANDING && pageData !== PageData.FINISH && <Header pageData={pageData}/>}
           { RenderByPageData(pageData, setPageData, isBack, setIsBack) }
         </S.ContentInnerWrapper>
       </S.ContentWrapper>

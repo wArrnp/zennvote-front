@@ -3,6 +3,8 @@ enum PageData {
   EMAIL_INPUT,
   QUIZ,
   VOTE,
+  REVIEW,
+  FINISH
 }
 
 export default PageData;
