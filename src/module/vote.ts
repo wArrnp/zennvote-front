@@ -127,7 +127,7 @@ const initialState:VoteData = {
   unit: ['', '', ''],
   new: ['', '', ''],
   grow: ['', '', ''],
-  master: [''],
+  master: ['', '', ''],
   custom: [],
   message: [],
 };

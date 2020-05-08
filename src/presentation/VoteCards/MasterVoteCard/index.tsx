@@ -26,8 +26,8 @@ const MasterVoteCard: React.FC<MasterVoteCardProps> = ({ setCanPass }) => {
             </CS.VoteCardsDescription>
             <CS.VoteCardsDivision />
           <SelectVote
-            maximumSelect={1}
-            minimumSelect={1}
+            maximumSelect={3}
+            minimumSelect={2}
             setCanPass={setCanPass}
             voteCardName="master" />
         </CS.VoteCardsWrapper>
