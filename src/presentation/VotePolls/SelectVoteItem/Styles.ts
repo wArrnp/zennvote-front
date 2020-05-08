@@ -35,7 +35,6 @@ export const SelectVoteItemToggleImg = styled.img`
     height: 30px;
     padding: 5px 10px;
     cursor: pointer;
-    border-left: 1px solid black;
     box-sizing: border-box;
 `
 
@@ -47,6 +46,7 @@ export const SelectVoteItemDropdown = styled.div`
     border-radius: 4px;
     z-index: 2;
     box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.1);
+    padding-bottom: 8px;
 `
 
 export const SelectVoteItemSearch = styled.input`
@@ -54,10 +54,9 @@ export const SelectVoteItemSearch = styled.input`
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid black;
-    padding: 15px;
+    padding: 10px 15px;
     background-color: transparent;
-    margin: 8px 10px;
-    margin-bottom: 8px;
+    margin: 14px 10px;
     font-size: 16px;
     color: black;
     &::placeholder {
