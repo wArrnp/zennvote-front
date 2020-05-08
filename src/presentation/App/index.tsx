@@ -12,6 +12,7 @@ import * as S from './Styles';
 const App = () => {
   const [ pageData, setPageData ] = useState(PageData.LANDING);
   const [ enableSearch, setEnableSearch ] = useState<boolean>(false);
+  const [ isBack, setIsBack ] = useState<boolean>(false);
 
   return (
     <S.AppWrapper>
@@ -19,7 +20,7 @@ const App = () => {
       <S.ContentWrapper enableSearch={enableSearch}>
         <S.ContentInnerWrapper>
           { pageData !== PageData.LANDING && <Header pageData={pageData}/>}
-          { RenderByPageData(pageData, setPageData) }
+          { RenderByPageData(pageData, setPageData, isBack, setIsBack) }
         </S.ContentInnerWrapper>
       </S.ContentWrapper>
       <S.SearchWrapper enableSearch={enableSearch}>

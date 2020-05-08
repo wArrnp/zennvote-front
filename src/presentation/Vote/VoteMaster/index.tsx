@@ -5,13 +5,15 @@ import { VoteMasterDescription, MasterVoteCard } from '../..';
 
 interface VoteMasterProps {
     handleVotePart: (increase:number) => void;
+    setIsVoteBack: (isVoteBack: boolean) => void;
 }
 
-const VoteMaster = ({handleVotePart}:VoteMasterProps) => {
+const VoteMaster = ({ handleVotePart, setIsVoteBack }:VoteMasterProps) => {
 
     const handleClickButton = useCallback((increase: number) => {
+        if(increase < 0) setIsVoteBack(true);
         handleVotePart(increase);
-    }, [handleVotePart]);
+    }, [handleVotePart, setIsVoteBack]);
 
     return (
         <S.VoteMasterWrapper>

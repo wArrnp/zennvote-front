@@ -1,14 +1,22 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import RenderToVoteFivePart from '../../../controller/RenderToVoteFivePart';
 
 import * as S from './Styles';
 
 interface VoteFivePartProps {
   handleVotePart: (increase:number) => void;
+  isVoteBack: boolean;
+  setIsVoteBack: (isVoteBack: boolean) => void;
 }
 
-const VoteFivePart = ({handleVotePart}:VoteFivePartProps) => {
-  const [pageStep, setPageStep] = useState(0);
+const VoteFivePart = ({handleVotePart, isVoteBack, setIsVoteBack}:VoteFivePartProps) => {
+  const [pageStep, setPageStep] = useState(isVoteBack? 5: 0);
+
+  useEffect(() => {
+    if(isVoteBack) {
+      setIsVoteBack(false);
+    }
+  }, [isVoteBack, setIsVoteBack, setPageStep])
 
   const handleClickButton = useCallback((increase: number) => {
     const increasedPageStep = pageStep + increase;

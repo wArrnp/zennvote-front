@@ -10,9 +10,11 @@ import * as S from './Styles';
 
 interface QuizProps {
   setPageData: (pageData: number) => void;
+  isBack: boolean;
+  setIsBack: (isBack: boolean) => void;
 }
 
-const Quiz = ({ setPageData }: QuizProps) => {
+const Quiz = ({ setPageData, isBack, setIsBack }: QuizProps) => {
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
   const dispatch = useDispatch();
   const { quizDatas, selectedQuizValues } = useSelector((state: StoreState) => ({
@@ -27,7 +29,14 @@ const Quiz = ({ setPageData }: QuizProps) => {
       ) {
       dispatch(setQuizDataThunk());
     }
-  }, [quizDatas, selectedQuizValues, dispatch]);
+    if(
+      (quizDatas?.length ?? 0) !== 0 &&
+      isBack
+    ) {
+      setCurrentPageIndex(quizDatas.length - 1);
+      setIsBack(false);
+    }
+  }, [quizDatas, selectedQuizValues, dispatch, isBack, setIsBack]);
 
   const handleQuizValues = useCallback((event: React.ChangeEvent<HTMLInputElement>, index: number) => {
     console.log(event.target.value);
