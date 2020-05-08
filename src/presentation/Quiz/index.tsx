@@ -67,6 +67,7 @@ const Quiz = ({ setPageData }: QuizProps) => {
         {
           (quizzes?.length ?? 0) !== 0 && !!quizzes[currentPageIndex] && (
             <QuizItem
+              index={currentPageIndex}
               title={quizzes[currentPageIndex].title}
               contents={quizzes[currentPageIndex].contents}
               selectedIndex={selectedQuizValues[currentPageIndex]}

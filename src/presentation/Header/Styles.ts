@@ -15,6 +15,7 @@ export const HeaderWrapper = styled.div`
   height: 91px;
   justify-content: center;
   align-items: center; 
+  padding-top: 16px;
 `;
 
 export const HeaderListItem = styled.span`
@@ -23,7 +24,7 @@ export const HeaderListItem = styled.span`
   text-align: center;
   color: ${(props:HeaderListItemProps) => props.isCurrent ? mainColor: '#bdbdbd'};
   font-weight: bold;
-  font-size: 18px;
+  font-size: 25px;
 
   &::after {
     content: '-';

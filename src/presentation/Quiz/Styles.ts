@@ -1,25 +1,25 @@
 import styled from 'styled-components';
 
-const innerWidth = 670;
+const innerWidth = '80%';
 
 interface QuizButtonProps {
   isNext: boolean;
 }
 
 export const QuizWrapper = styled.div`
-  padding-top: 36px;
+  padding-top: 42px;
   padding-bottom: 30px;
   margin: 0 auto;
 `;
 
 export const QuizContentWrapper = styled.div`
-  width: ${innerWidth}px;
+  width: ${innerWidth};
   margin: 0 auto;
 `;
 
 export const QuizButtonWrapper = styled.div`
   display: flex;
-  width: ${innerWidth}px;
+  width: ${innerWidth};
   justify-content: space-between;
   margin: auto;
   margin-top: 30px;
