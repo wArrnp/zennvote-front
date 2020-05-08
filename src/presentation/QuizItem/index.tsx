@@ -13,7 +13,7 @@ const QuizItem = ({ index, title, contents: choices, selectedIndex, handleQuizSe
   return (
     <S.QuizItemWrapper>
       <S.QuizItemTitle>
-        {index+1}. {title}
+        {index + 1}. {title}
       </S.QuizItemTitle>
       {
         choices.map((choice, index) => (
