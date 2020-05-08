@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const innerWidth = 670;
+const innerWidth = '80%';
 
 interface VoteMasterButtonProps {
     isNext: boolean;
@@ -8,14 +8,14 @@ interface VoteMasterButtonProps {
 
 
 export const VoteMasterWrapper = styled.div`
-  width: ${innerWidth}px;
+  width: ${innerWidth};
   margin: 0 auto;
   padding-top: 36px;
   padding-bottom: 30px;
 `
 export const VoteMasterButtonWrapper = styled.div`
   display: flex;
-  width: ${innerWidth}px;
+  width: 100%;
   justify-content: space-between;
   margin: auto;
   margin-top: 30px;
