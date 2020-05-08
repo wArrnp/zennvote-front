@@ -1,9 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { QuizItem } from '../';
-import QuizData from '../../entity/QuizData';
 import { StoreState } from '../../module';
-import { setQuizData, setQuizDataThunk, setQuizSelectedValueByIndex } from '../../module/quiz';
+import { setQuizDataThunk, setQuizSelectedValueByIndex } from '../../module/quiz';
 import PageData from '../../entity/PageData';
 
 
