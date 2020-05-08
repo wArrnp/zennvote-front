@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EpisodeVote } from '../../';
 import { StoreState } from '../../../module';
@@ -6,13 +6,27 @@ import { setVoteByKeyValueThunk } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
-const FunnyVoteCard = () => {
+interface FunnyVoteCardProps {
+  setCanPass: (canPass: boolean) => void;
+}
+
+const FunnyVoteCard: React.FC<FunnyVoteCardProps> = ({ setCanPass }) => {
   const dispatch = useDispatch();
   const { funny } = useSelector((state:StoreState) => ({
     funny: state.vote.funny
   }));
 
+  useEffect(() => {
+    const inputCount = funny?.filter(v => !!v.episode && !!v.index && !v.error).length || 0;
+
+    if(inputCount <= 3 && inputCount >= 1) {
+      setCanPass(true);
+    }
+  }, [funny, setCanPass])
+
   const confirmEpisodeVote = useCallback((funny) => {
+    setCanPass(false);
+
     dispatch(
       setVoteByKeyValueThunk(
         funny,
@@ -21,7 +35,7 @@ const FunnyVoteCard = () => {
       )
     );
 
-  }, [dispatch]);
+  }, [dispatch, setCanPass]);
 
   return (
     <CS.VoteCardsWrapper>

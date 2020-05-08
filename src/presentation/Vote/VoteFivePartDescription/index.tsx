@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import * as S from './Styles';
 
-const VoteFivePartDescription = () => {
+interface VoteFivePartDescriptionProps {
+  setCanPass: (canPass: boolean) => void;
+}
+
+const VoteFivePartDescription: React.FC<VoteFivePartDescriptionProps> = ({ setCanPass }) => {
+  useEffect(() => {
+    setCanPass(true);
+  }, [setCanPass])
+
   return (
     <div>
       인기상, 대상을 정하기 전에 총 <b>5개의 부문</b>이 있습니다.<br/>

@@ -11,6 +11,7 @@ interface VoteFivePartProps {
 
 const VoteFivePart = ({handleVotePart, isVoteBack, setIsVoteBack}:VoteFivePartProps) => {
   const [pageStep, setPageStep] = useState(isVoteBack? 5: 0);
+  const [canPass, setCanPass] = useState<boolean>(false);
 
   useEffect(() => {
     if(isVoteBack) {
@@ -23,15 +24,20 @@ const VoteFivePart = ({handleVotePart, isVoteBack, setIsVoteBack}:VoteFivePartPr
     if(increasedPageStep < 0) {
       handleVotePart(-1);
     } else if(increasedPageStep > 5) {
-      handleVotePart(1)
+      if(canPass) {
+        handleVotePart(1)
+      }
     } else {
+      if(increase > 0 && !canPass) return;
+
+      setCanPass(false);
       setPageStep(increasedPageStep);
     }
-  }, [pageStep, handleVotePart])  
+  }, [pageStep, handleVotePart, canPass])  
 
   return (
     <S.VoteFivePartWrapper>
-      {RenderToVoteFivePart(pageStep)}
+      {RenderToVoteFivePart(pageStep, setCanPass)}
       <S.VoteFivePartButtonWrapper>
         <S.VoteFivePartButton
           isNext={false}

@@ -1,19 +1,19 @@
 import React from 'react';
 import { PitchVoteCard, VoiceVoteCard, FunnyVoteCard, ContentVoteCard, OriginalVoteCard, VoteFivePartDescription } from '../presentation';
 
-export default function(pageIndex:number): React.ReactNode {
+export default function(pageIndex: number, setCanPass: (canPass: boolean) => void): React.ReactNode {
   switch(pageIndex) {
     case 0:
-      return <VoteFivePartDescription />
+      return <VoteFivePartDescription setCanPass={setCanPass}/>
     case 1:
-      return <PitchVoteCard />
+      return <PitchVoteCard setCanPass={setCanPass} />
     case 2:
-      return <VoiceVoteCard />
+      return <VoiceVoteCard setCanPass={setCanPass} />
     case 3:
-      return <FunnyVoteCard />
+      return <FunnyVoteCard setCanPass={setCanPass} />
     case 4:
-      return <ContentVoteCard />
+      return <ContentVoteCard setCanPass={setCanPass} />
     case 5:
-      return <OriginalVoteCard />
+      return <OriginalVoteCard setCanPass={setCanPass} />
   }
 }
