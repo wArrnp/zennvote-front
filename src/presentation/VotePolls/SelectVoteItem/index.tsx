@@ -20,7 +20,7 @@ const SelectVoteItem = ({ isShown, onToggle, selectList, selectedValue = "", sel
             onToggle();
             setSearchKeyword('');
         },
-        [onToggle, setSearchKeyword, isShown],
+        [onToggle, setSearchKeyword],
     )
 
     const handleClickDropdownItem = useCallback(
@@ -30,6 +30,11 @@ const SelectVoteItem = ({ isShown, onToggle, selectList, selectedValue = "", sel
         }, 
         [handleChangeSetVoteList, onToggle],
     )
+
+    const handleClickDropdownUnselect = () => {
+        handleChangeSetVoteList('');
+        onToggle();
+    };
 
     return (
         <S.SelectVoteItemWrapper>
@@ -55,6 +60,9 @@ const SelectVoteItem = ({ isShown, onToggle, selectList, selectedValue = "", sel
                         <S.SelectVoteItemDropdown>
                             <S.SelectVoteItemSearch onChange={(e) => setSearchKeyword(e.target.value)} placeholder="검색어를 입력하세요."/>
                             <S.SelectVoteItemDropdownList>
+                                <S.SelectVoteItemDropdownItem onClick={(e) => handleClickDropdownUnselect()}>
+                                    선택 없음
+                                </S.SelectVoteItemDropdownItem>
                                 {
                                     selectList.filter(v => v.indexOf(searchKeyword) !== -1 && selectedList.findIndex(value => value === v) === -1).map((selectValue: string) => (
                                         <S.SelectVoteItemDropdownItem key={selectValue} onClick={(e) => handleClickDropdownItem(selectValue)}>
