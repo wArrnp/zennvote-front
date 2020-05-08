@@ -17,9 +17,11 @@ const FunnyVoteCard: React.FC<FunnyVoteCardProps> = ({ setCanPass }) => {
   }));
 
   useEffect(() => {
-    const inputCount = funny?.filter(v => !!v.episode && !!v.index && !v.error).length || 0;
+    const inputCount = funny?.filter(v => !!v.episode && !!v.index).length || 0;
+    const errorCount = funny?.filter(v => !v.error  && !v.overlapped).length || 0;
 
-    if(inputCount <= 3 && inputCount >= 1) {
+
+    if(inputCount <= 3 && inputCount >= 1 && errorCount === 0) {
       setCanPass(true);
     }
   }, [funny, setCanPass])

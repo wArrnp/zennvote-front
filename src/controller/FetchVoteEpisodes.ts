@@ -44,6 +44,7 @@ export default function FetchVoteEpisodes(
     return Promise.all(willFetchData.map(d => FetchVoteEpisode(d.episode, d.index)))
         .then(values => {
             values.forEach((value: any, index: number) => {
+                if (!willFetchData[index].episode && !willFetchData[index].index) return ;
                 if(value.isNotFound === false) {
                     willFetchData[index].error = "존재하지 않는 투고 정보입니다.";
                 } else {
@@ -51,6 +52,7 @@ export default function FetchVoteEpisodes(
                         willFetchData[index].song = value.song;
                         willFetchData[index].producer = value.producer;
                         willFetchData[index].error = '';
+                        willFetchData[index].overlapped = false;
                     } else {
                         willFetchData[index].error = "투표 대상이 아닙니다.";
                     }

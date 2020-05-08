@@ -17,9 +17,10 @@ const SleepVoteCard: React.FC<SleepVoteCardProps> = ({ setCanPass}) => {
   }));
 
   useEffect(() => {
-    const inputCount = sleep?.filter(v => !!v.producer && !!v.song && !v.error).length || 0;
+    const inputCount = sleep?.filter(v => !!v.producer && !!v.song).length || 0;
+    const errorCount = sleep?.filter(v => !!v.error && v.overlapped).length || 0;
 
-    if(inputCount <= 5 && inputCount >= 1) {
+    if(inputCount <= 5 && inputCount >= 1 && errorCount === 0) {
       setCanPass(true);
     }
   }, [sleep, setCanPass])
