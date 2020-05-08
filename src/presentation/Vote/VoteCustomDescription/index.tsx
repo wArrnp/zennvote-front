@@ -5,11 +5,11 @@ import * as S from './Styles';
 const VoteCustomDescription = () => {
     return (
         <S.VoteCustomDescriptionWrapper>
-            커스텀이에요 ~
-            <S.VoteCustomDescriptionDivision />
-            앞서 부문에서 투표했던 프로듀서를 여기에서는 다시 투표 가능합니다.<br/>
-            중복은 부문상에서만 안 되는 거예요~
-            <S.VoteCustomDescriptionDivision />
+            <S.VoteCustomDescriptionTitle>
+            내가 주고싶은 상
+            </S.VoteCustomDescriptionTitle>
+            직접 수상하고 싶은 상 부문과 수상자가 있다면 적어주세요. <br />
+            재미있는 아이디어가 있다면 소개하겠습니다.
         </S.VoteCustomDescriptionWrapper>
     );
 };

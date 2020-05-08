@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 
 import * as S from './Styles';
-import { VoteMasterDescription, MasterVoteCard } from '../..';
+import { MasterVoteCard } from '../..';
 
 interface VoteMasterProps {
     handleVotePart: (increase:number) => void;
@@ -19,7 +19,6 @@ const VoteMaster = ({ handleVotePart, setIsVoteBack }:VoteMasterProps) => {
 
     return (
         <S.VoteMasterWrapper>
-            <VoteMasterDescription />
             <MasterVoteCard setCanPass={setCanPass}/>
             <S.VoteMasterButtonWrapper>
                 <S.VoteMasterButton

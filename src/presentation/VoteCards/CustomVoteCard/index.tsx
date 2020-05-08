@@ -28,34 +28,36 @@ const CustomVoteCard:React.FC<CustomVoteCardProps> = ({ dumDataList, handleSubmi
             {
                 dumDataList.map((dumData, index) => (
                     <S.CustomVoteItemWrapper key={index}>
-                        <p>
-                            <span>회차 : { dumData.episode.episode }</span>
-                            <span>번호 : { dumData.episode.index }</span>
-                        </p>
-                        <p>
-                            { dumData.content }
-                        </p>
-                        <button onClick={() => handleDeleteByIndex(index)}>삭제</button>
+                            <S.CustomVoteItemEpisode><b>{ dumData.episode.episode }</b>회 <b>{ dumData.episode.index }</b>번</S.CustomVoteItemEpisode>
+                            <S.CustomVoteItemContent> { dumData.content } </S.CustomVoteItemContent>
+                            <S.CustomVoteItemDeleteButton onClick={() => handleDeleteByIndex(index)}>-</S.CustomVoteItemDeleteButton>
                     </S.CustomVoteItemWrapper>
                 ))
             }
             <S.CustomVoteEditWrapper>
-                <S.CustomVoteEditTop
-                    value={episode}
-                    type="number"
-                    onChange={(e) => setEpisode(Number(e.target.value))}
-                    placeholder="회차를 입력해주세요"/>
-                <S.CustomVoteEditTop
-                    value={index}
-                    type="number"
-                    onChange={(e) => setIndex(Number(e.target.value))}
-                    placeholder="번호를 입력해주세요."/>
+                <S.CustomVoteEditTop>
+                    <S.CustomVoteEditEpisode>
+                        <S.CustomVoteEditShortField
+                            value={episode}
+                            type="number"
+                            onChange={(e) => setEpisode(Number(e.target.value))}
+                            placeholder="회차를 입력해주세요"/>
+                        <S.CustomVoteEditDescription>회</S.CustomVoteEditDescription>
+                        <S.CustomVoteEditShortField
+                            value={index}
+                            type="number"
+                            onChange={(e) => setIndex(Number(e.target.value))}
+                            placeholder="번호를 입력해주세요."/>
+                        <S.CustomVoteEditDescription>번</S.CustomVoteEditDescription>
+                    </S.CustomVoteEditEpisode>
+                    <S.CustomVoteItemAddButton onClick={() => onClickSubmitButton(episode, index, content)}>
+                        +
+                    </S.CustomVoteItemAddButton>
+                </S.CustomVoteEditTop>
                 <S.CustomVoteEditContent 
-                    placeholder="보내실 값을 보내주세요."
-                    rows={3}
+                    placeholder="상 이름을 적어주세요."
                     onChange={(e) => setContent(e.target.value)}
                     value={content}/>
-                <button onClick={() => onClickSubmitButton(episode, index, content)}>추가</button>
             </S.CustomVoteEditWrapper>
         </CS.VoteCardsWrapper>
     )

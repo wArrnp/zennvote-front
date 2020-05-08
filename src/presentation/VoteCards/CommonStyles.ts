@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const VoteCardsWrapper = styled.div`
-  margin-top: -12px;
 `
 
 export const VoteCardsIndex = styled.p`
