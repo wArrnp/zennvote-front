@@ -3,8 +3,11 @@ import { SelectVote } from '../../';
 
 import * as CS from '../CommonStyles';
 
+interface MasterVoteCardProps {
+    setCanPass: (canPass: boolean) => void;
+}
 
-const MasterVoteCard = () => {
+const MasterVoteCard: React.FC<MasterVoteCardProps> = ({ setCanPass }) => {
 
     return (
         <CS.VoteCardsWrapper>
@@ -24,6 +27,8 @@ const MasterVoteCard = () => {
             <CS.VoteCardsDivision />
           <SelectVote
             maximumSelect={1}
+            minimumSelect={1}
+            setCanPass={setCanPass}
             selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
             voteCardName="master" />
         </CS.VoteCardsWrapper>

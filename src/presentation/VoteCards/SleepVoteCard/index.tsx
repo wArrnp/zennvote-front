@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EpisodeVote } from '../../';
 import { StoreState } from '../../../module';
@@ -6,19 +6,33 @@ import { setVoteByKeyValueThunk } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
-const SleepVoteCard = () => {
+interface SleepVoteCardProps {
+  setCanPass: (canPass: boolean) => void;
+}
+
+const SleepVoteCard: React.FC<SleepVoteCardProps> = ({ setCanPass}) => {
   const dispatch = useDispatch();
   const { sleep } = useSelector((state:StoreState) => ({
     sleep: state.vote.sleep
   }));
 
+  useEffect(() => {
+    const inputCount = sleep?.filter(v => !!v.producer && !!v.song && !v.error).length || 0;
+
+    if(inputCount <= 5 && inputCount >= 1) {
+      setCanPass(true);
+    }
+  }, [sleep, setCanPass])
+
   const confirmEpisodeVote = useCallback((sleep) => {
+    setCanPass(false);
+
     dispatch(setVoteByKeyValueThunk(
       sleep,
       'sleep',
       false
     ));
-  }, [dispatch]);
+  }, [dispatch, setCanPass]);
 
   return (
     <CS.VoteCardsWrapper>

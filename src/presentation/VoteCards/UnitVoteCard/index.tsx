@@ -4,7 +4,11 @@ import { SelectVote } from '../../';
 import * as CS from '../CommonStyles';
 
 
-const UnitVoteCard = () => {
+interface UnitVoteCardProps {
+    setCanPass: (canPass: boolean) => void;
+}
+
+const UnitVoteCard: React.FC<UnitVoteCardProps> = ({ setCanPass }) => {
 
 
     return (
@@ -25,6 +29,8 @@ const UnitVoteCard = () => {
             <CS.VoteCardsDivision />
           <SelectVote
             maximumSelect={3}
+            minimumSelect={0}
+            setCanPass={setCanPass}
             selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
             voteCardName="unit" />
         </CS.VoteCardsWrapper>

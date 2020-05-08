@@ -11,6 +11,7 @@ interface VotePopularProps {
 
 const VotePopular = ({handleVotePart, isVoteBack, setIsVoteBack}:VotePopularProps) => {
     const [pageStep, setPageStep] = useState(isVoteBack? 4: 0);
+    const [canPass, setCanPass] = useState<boolean>(false);
 
     useEffect(() => {
         if(isVoteBack) {
@@ -24,15 +25,20 @@ const VotePopular = ({handleVotePart, isVoteBack, setIsVoteBack}:VotePopularProp
             setIsVoteBack(true);
             handleVotePart(-1);
         } else if(increasedPageStep > 4) {
-            handleVotePart(1);
+            if(canPass) {
+                handleVotePart(1);
+            }
         } else {
+            if(increase > 0 && !canPass) return;
+
+            setCanPass(false);
             setPageStep(increasedPageStep);
         }
-    }, [pageStep, handleVotePart, setIsVoteBack]);
+    }, [pageStep, handleVotePart, setIsVoteBack, canPass]);
 
     return (
         <S.VotePopularWrapper>
-            {RenderToVotePopular(pageStep)}
+            {RenderToVotePopular(pageStep, setCanPass)}
             <S.VotePopularButtonWrapper>
                 <S.VotePopularButton
                     isNext={false}

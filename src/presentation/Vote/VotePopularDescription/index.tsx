@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import * as S from './Styles';
 
-const VotePopularDescription = () => {
+interface VotePopularDescriptionProps {
+    setCanPass: (canPass: boolean) => void
+}
+
+const VotePopularDescription: React.FC<VotePopularDescriptionProps> = ({ setCanPass }) => {
+    useEffect(() => {
+        setCanPass(true);
+    }, [setCanPass])
+
     return (
         <S.VotePopularDescriptionWrapper>
             지난 시즌 대상 <b>태민</b>,<br/>

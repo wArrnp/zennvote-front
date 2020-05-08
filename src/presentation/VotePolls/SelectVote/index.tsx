@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SelectVoteItem } from '../../';
 
@@ -8,17 +8,28 @@ import { setVoteByKeyValue } from '../../../module/vote';
 
 interface SelectVoteProps {
     maximumSelect: number;
-    minimumSelect?: number;
+    minimumSelect: number;
     selectList: string[];
     voteCardName: string;
+    setCanPass: (canPass: boolean) => void;
 }
 
-const SelectVote = ({ maximumSelect, minimumSelect, selectList, voteCardName }: SelectVoteProps) => {
+const SelectVote = ({ maximumSelect, minimumSelect, selectList, voteCardName, setCanPass }: SelectVoteProps) => {
     const dispatch = useDispatch();
     const { selectVoteData = [] } = useSelector((state: StoreState) => ({
         selectVoteData: state.vote[voteCardName]
     }))
     const [isOverlapped, setIsOverlapped] = useState<boolean>(false);
+
+    useEffect(() => {
+        const inputCount = selectVoteData.filter(v => !!v).length || 0;
+        if(inputCount <= maximumSelect && inputCount >= minimumSelect) {
+            setCanPass(true);
+        } else {
+            setCanPass(false);
+        }
+
+    }, [selectVoteData, minimumSelect, maximumSelect, setCanPass])
 
     const handleChangeSetVoteList = useCallback(
         (index: number, value: string) => {

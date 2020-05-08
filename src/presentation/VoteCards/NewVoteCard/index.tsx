@@ -3,8 +3,11 @@ import { SelectVote } from '../../';
 
 import * as CS from '../CommonStyles';
 
+interface NewVoteCardProps {
+    setCanPass: (canPass: boolean) => void;
+}
 
-const NewVoteCard = () => {
+const NewVoteCard: React.FC<NewVoteCardProps> = ({ setCanPass }) => {
     return (
         <CS.VoteCardsWrapper>
             <CS.VoteCardsIndex>두번째 부문</CS.VoteCardsIndex>
@@ -23,6 +26,8 @@ const NewVoteCard = () => {
             <CS.VoteCardsDivision />
           <SelectVote
             maximumSelect={3}
+            minimumSelect={2}
+            setCanPass={setCanPass}
             selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
             voteCardName="new" />
         </CS.VoteCardsWrapper>

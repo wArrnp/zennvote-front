@@ -3,8 +3,11 @@ import { SelectVote } from '../../';
 
 import * as CS from '../CommonStyles';
 
+interface GrowVoteCardProps {
+    setCanPass: (canPass: boolean) => void;
+}
 
-const GrowVoteCard = () => {
+const GrowVoteCard: React.FC<GrowVoteCardProps> = ({ setCanPass }) => {
     return (
         <CS.VoteCardsWrapper>
             <CS.VoteCardsIndex>세번째 부문</CS.VoteCardsIndex>
@@ -23,6 +26,8 @@ const GrowVoteCard = () => {
             <CS.VoteCardsDivision />
           <SelectVote
             maximumSelect={3}
+            minimumSelect={0}
+            setCanPass={setCanPass}
             selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
             voteCardName="grow"/>
         </CS.VoteCardsWrapper>
