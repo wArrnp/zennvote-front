@@ -12,7 +12,8 @@ export const SelectVoteItemWrapper = styled.div`
 export const SelectVoteItemValueWrapper = styled.p`
     display: flex;
     width: 100%;
-    border: 1px solid black;
+    height: 40px;
+    border-bottom: 1px solid black;
     align-items: center;
 `
 
@@ -25,10 +26,14 @@ export const SelectVoteItemValue = styled.span`
     padding: 0 10px;
 `
 
+export const SelectVoteItemPlaceholder = styled.span`
+    color: gray;
+`
+
 export const SelectVoteItemToggleImg = styled.img`
-    width: 30px;
+    width: 40px;
     height: 30px;
-    padding: 5px;
+    padding: 5px 10px;
     cursor: pointer;
     border-left: 1px solid black;
     box-sizing: border-box;
@@ -37,41 +42,47 @@ export const SelectVoteItemToggleImg = styled.img`
 export const SelectVoteItemDropdown = styled.div`
     position: absolute;
     width: 100%;
-    top: 100%;
+    top: 120%;
     background-color: white;
+    border-radius: 4px;
     z-index: 2;
+    box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.1);
 `
 
 export const SelectVoteItemSearch = styled.input`
-    width: 100%;
+    width: calc(100% - 20px);
     box-sizing: border-box;
-    border: 1px solid black;
-    padding: 15px 5px;
-    background-color: white;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 15px;
+    background-color: transparent;
+    margin: 8px 10px;
+    margin-bottom: 8px;
     font-size: 16px;
+    color: black;
+    &::placeholder {
+        color: lightgray;
+    }
+    &:focus {
+        outline: none;
+    }
 `
 
 export const SelectVoteItemDropdownList = styled.div`
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
-    border: 1px solid black;
     border-top: none;
-    background-color: white;
+    background-color: transparent;
 `
 
 export const SelectVoteItemDropdownItem = styled.p`
     width: 100%;
+    color: black;
     box-sizing: border-box;
-    padding: 10px 5px;
+    padding: 10px 15px;
     margin: 0;
-    border-bottom: 1px solid black;
-    
-    &:nth-of-type(1) {
-        border-top: none;
-    }
-
-    &:nth-last-of-type(1) {
-        border-bottom: none;
+    &:hover {
+        background-color: lightgray;
     }
 `

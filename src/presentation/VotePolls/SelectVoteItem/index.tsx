@@ -33,9 +33,18 @@ const SelectVoteItem = ({ selectList, selectedValue = "", selectedList=[] , hand
     return (
         <S.SelectVoteItemWrapper>
             <S.SelectVoteItemValueWrapper onClick={onClickToggleDropdown}>
-                <S.SelectVoteItemValue>
-                    {selectedValue}
-                </S.SelectVoteItemValue>
+                {
+                    !!selectedValue ?
+                    <S.SelectVoteItemValue>
+                        { selectedValue }
+                    </S.SelectVoteItemValue>
+                    :
+                    <S.SelectVoteItemValue>
+                        <S.SelectVoteItemPlaceholder>
+                            선택해주세요.
+                        </S.SelectVoteItemPlaceholder>
+                    </S.SelectVoteItemValue>
+                }
                 <S.SelectVoteItemToggleImg
                     src={ToggleImg}
                     alt='toggle'/>
