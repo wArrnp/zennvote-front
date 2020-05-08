@@ -79,7 +79,7 @@ export default function FetchVoteEpisodes(
                 willFetchData.forEach((data, index) => {
                     let cnt = 1;
                     willFetchData.forEach(inner => {
-                        if(data.producer === inner.producer) cnt--;
+                        if(!!data.producer && !!inner.producer && data.producer === inner.producer) cnt--;
                     })
                     if(cnt < 0) willFetchData[index].overlapped = true;
                 })

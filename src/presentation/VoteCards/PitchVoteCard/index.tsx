@@ -18,7 +18,7 @@ const PitchVoteCard: React.FC<PitchVoteCardProps> = ({ setCanPass }) => {
 
   useEffect(() => {
     const inputCount = pitch?.filter(v => !!v.producer && !!v.song && !v.error  && !v.overlapped).length || 0;
-    const errorCount = pitch?.filter(v => !!v.error && v.overlapped).length || 0;
+    const errorCount = pitch?.filter(v => !!v.error || !!v.overlapped).length || 0;
 
 
     if(inputCount <= 5 && inputCount >= 1 && errorCount === 0) {

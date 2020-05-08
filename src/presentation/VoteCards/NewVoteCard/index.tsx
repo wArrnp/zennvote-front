@@ -28,7 +28,6 @@ const NewVoteCard: React.FC<NewVoteCardProps> = ({ setCanPass }) => {
             maximumSelect={3}
             minimumSelect={2}
             setCanPass={setCanPass}
-            selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
             voteCardName="new" />
         </CS.VoteCardsWrapper>
     )

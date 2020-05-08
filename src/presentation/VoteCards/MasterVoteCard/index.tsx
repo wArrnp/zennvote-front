@@ -29,7 +29,6 @@ const MasterVoteCard: React.FC<MasterVoteCardProps> = ({ setCanPass }) => {
             maximumSelect={1}
             minimumSelect={1}
             setCanPass={setCanPass}
-            selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
             voteCardName="master" />
         </CS.VoteCardsWrapper>
     )
