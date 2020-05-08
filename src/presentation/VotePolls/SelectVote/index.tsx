@@ -20,6 +20,7 @@ const SelectVote = ({ maximumSelect, minimumSelect, voteCardName, setCanPass }: 
         selectVoteData: state.vote[voteCardName],
         selectVoteProblem: state.selectVote[voteCardName],
     }))
+    const [shownItem, setShownItem] = useState(-1);
     const [isOverlapped, setIsOverlapped] = useState<boolean>(false);
 
     useEffect(() => {
@@ -58,6 +59,14 @@ const SelectVote = ({ maximumSelect, minimumSelect, voteCardName, setCanPass }: 
         },
         [selectVoteData, dispatch, voteCardName],
     )
+
+    const handleToggleItem = (index: number) => {
+        if (shownItem === index) {
+            setShownItem(-1);
+        } else {
+            setShownItem(index);
+        }
+    };
     
     return (
         <>
@@ -65,6 +74,8 @@ const SelectVote = ({ maximumSelect, minimumSelect, voteCardName, setCanPass }: 
                 selectVoteData.map((voteValue: string, index: number) => (
                     <SelectVoteItem
                         key={`${index}-${voteValue}`}
+                        isShown={shownItem === index}
+                        onToggle={() => handleToggleItem(index)}
                         selectList={selectVoteProblem}
                         selectedValue={voteValue}
                         selectedList={selectVoteData}

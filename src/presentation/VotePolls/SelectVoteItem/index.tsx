@@ -4,30 +4,31 @@ import ToggleImg from '../../../assets/image/bottom.png';
 import * as S from './Styles';
 
 interface SelectVoteItemProps {
+    isShown: boolean;
     selectList: string[];
     selectedValue: string;
     selectedList: string[];
+    onToggle: () => void;
     handleChangeSetVoteList: (value: string) => void;
 }
 
-const SelectVoteItem = ({ selectList, selectedValue = "", selectedList=[] , handleChangeSetVoteList}: SelectVoteItemProps) => {
+const SelectVoteItem = ({ isShown, onToggle, selectList, selectedValue = "", selectedList=[] , handleChangeSetVoteList}: SelectVoteItemProps) => {
     const [searchKeyword, setSearchKeyword] = useState<string>("");
-    const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
     const onClickToggleDropdown = useCallback(
         () => {
-            setShowDropdown(!showDropdown);
+            onToggle();
             setSearchKeyword('');
         },
-        [setShowDropdown, setSearchKeyword, showDropdown],
+        [onToggle, setSearchKeyword, isShown],
     )
 
     const handleClickDropdownItem = useCallback(
         (value) => {
             handleChangeSetVoteList(value);
-            setShowDropdown(false);
+            onToggle();
         }, 
-        [handleChangeSetVoteList, setShowDropdown],
+        [handleChangeSetVoteList, onToggle],
     )
 
     return (
@@ -50,7 +51,7 @@ const SelectVoteItem = ({ selectList, selectedValue = "", selectedList=[] , hand
                     alt='toggle'/>
             </S.SelectVoteItemValueWrapper>
             {
-                    showDropdown && (           
+                    isShown && (           
                         <S.SelectVoteItemDropdown>
                             <S.SelectVoteItemSearch onChange={(e) => setSearchKeyword(e.target.value)} placeholder="검색어를 입력하세요."/>
                             <S.SelectVoteItemDropdownList>
