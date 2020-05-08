@@ -18,7 +18,8 @@ const OriginalVoteCard: React.FC<OriginalVoteCardProps> = ({ setCanPass }) => {
 
   useEffect(() => {
     const inputCount = original?.filter(v => !!v.episode && !!v.index).length || 0;
-    const errorCount = original?.filter(v => !!v.error && !v.overlapped).length || 0;
+    const errorCount = original?.filter(v => !!v.error || !!v.overlapped).length || 0;
+>>>>>>> 8fc352cfb850e3c2506230dfb24c96367bf3e227
 
     if(inputCount <= 3 && inputCount >= 1 && errorCount === 0) {
       setCanPass(true);

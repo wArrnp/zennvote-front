@@ -5,21 +5,28 @@ import { SelectVoteItem } from '../../';
 import * as S from './Styles';
 import { StoreState } from '../../../module';
 import { setVoteByKeyValue } from '../../../module/vote';
+import { setSelectVoteThunk } from '../../../module/selectVote';
 
 interface SelectVoteProps {
     maximumSelect: number;
     minimumSelect: number;
-    selectList: string[];
     voteCardName: string;
     setCanPass: (canPass: boolean) => void;
 }
 
-const SelectVote = ({ maximumSelect, minimumSelect, selectList, voteCardName, setCanPass }: SelectVoteProps) => {
+const SelectVote = ({ maximumSelect, minimumSelect, voteCardName, setCanPass }: SelectVoteProps) => {
     const dispatch = useDispatch();
-    const { selectVoteData = [] } = useSelector((state: StoreState) => ({
-        selectVoteData: state.vote[voteCardName]
+    const { selectVoteData = [], selectVoteProblem = [] } = useSelector((state: StoreState) => ({
+        selectVoteData: state.vote[voteCardName],
+        selectVoteProblem: state.selectVote[voteCardName],
     }))
     const [isOverlapped, setIsOverlapped] = useState<boolean>(false);
+
+    useEffect(() => {
+        if(selectVoteProblem.length === 0) {
+            dispatch(setSelectVoteThunk(voteCardName))
+        }
+    }, [selectVoteProblem, dispatch, voteCardName])
 
     useEffect(() => {
         const inputCount = selectVoteData.filter(v => !!v).length || 0;
@@ -58,9 +65,10 @@ const SelectVote = ({ maximumSelect, minimumSelect, selectList, voteCardName, se
                 selectVoteData.map((voteValue: string, index: number) => (
                     <SelectVoteItem
                         key={`${index}-${voteValue}`}
-                        selectList={selectList}
+                        selectList={selectVoteProblem}
                         selectedValue={voteValue}
-                        handleChangeSetVoteList={(v: string) => handleChangeSetVoteList(index, v)}/>
+                        selectedList={selectVoteData}
+                        handleChangeSetVoteList={(v: string) => handleChangeSetVoteList(index, v)} />
                 ))
             }
             {

@@ -39,7 +39,6 @@ const Quiz = ({ setPageData, isBack, setIsBack }: QuizProps) => {
   }, [quizDatas, selectedQuizValues, dispatch, isBack, setIsBack]);
 
   const handleQuizValues = useCallback((event: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    console.log(event.target.value);
     dispatch(setQuizSelectedValueByIndex(index, parseInt(event.target.value)));
   }, [dispatch]);
 

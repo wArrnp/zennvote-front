@@ -6,10 +6,11 @@ import * as S from './Styles';
 interface SelectVoteItemProps {
     selectList: string[];
     selectedValue: string;
+    selectedList: string[];
     handleChangeSetVoteList: (value: string) => void;
 }
 
-const SelectVoteItem = ({ selectList, selectedValue = "" , handleChangeSetVoteList}: SelectVoteItemProps) => {
+const SelectVoteItem = ({ selectList, selectedValue = "", selectedList=[] , handleChangeSetVoteList}: SelectVoteItemProps) => {
     const [searchKeyword, setSearchKeyword] = useState<string>("");
     const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
@@ -45,7 +46,7 @@ const SelectVoteItem = ({ selectList, selectedValue = "" , handleChangeSetVoteLi
                             <S.SelectVoteItemSearch onChange={(e) => setSearchKeyword(e.target.value)} placeholder="검색어를 입력하세요."/>
                             <S.SelectVoteItemDropdownList>
                                 {
-                                    selectList.filter(v => v.indexOf(searchKeyword) !== -1).map((selectValue: string) => (
+                                    selectList.filter(v => v.indexOf(searchKeyword) !== -1 && selectedList.findIndex(value => value === v) === -1).map((selectValue: string) => (
                                         <S.SelectVoteItemDropdownItem key={selectValue} onClick={(e) => handleClickDropdownItem(selectValue)}>
                                             {selectValue}
                                         </S.SelectVoteItemDropdownItem>
