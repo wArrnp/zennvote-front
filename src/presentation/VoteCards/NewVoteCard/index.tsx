@@ -17,7 +17,7 @@ const NewVoteCard: React.FC<NewVoteCardProps> = ({ setCanPass }) => {
             </CS.VoteCardsTitle>
             <CS.VoteCardsDescription>
                 이번 시즌에 처음 등장해서 내 머릿속에 꽂혀버린 매력적인 보이스의 소유자는 누구?<br />
-                다음 시즌에 대활약해주길 기대하는 그 프로듀서를 최소 2명~최대 3명까지 뽑아주세요.
+                다음 시즌에 대활약해주길 기대하는 그 프로듀서를 3명 뽑아주세요.
             </CS.VoteCardsDescription>
             <CS.VoteCardsDescription>
                 ※ 진지하게 내게 <b>임팩트</b>를 줬고, 노래나 보이스가 너무 괜찮았기에 <b>앞으로를 기대하는 사람</b>에게 투표해주세요.
@@ -26,7 +26,7 @@ const NewVoteCard: React.FC<NewVoteCardProps> = ({ setCanPass }) => {
             <CS.VoteCardsDivision />
           <SelectVote
             maximumSelect={3}
-            minimumSelect={2}
+            minimumSelect={3}
             setCanPass={setCanPass}
             voteCardName="new" />
         </CS.VoteCardsWrapper>

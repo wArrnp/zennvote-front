@@ -29,7 +29,7 @@ const UnitVoteCard: React.FC<UnitVoteCardProps> = ({ setCanPass }) => {
             <CS.VoteCardsDivision />
           <SelectVote
             maximumSelect={3}
-            minimumSelect={0}
+            minimumSelect={3}
             setCanPass={setCanPass}
             voteCardName="unit" />
         </CS.VoteCardsWrapper>

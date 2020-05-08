@@ -27,7 +27,8 @@ const Vote = ({setPageData, isBack, setIsBack }: VoteProps) => {
       setIsBack(true);
       setPageData(PageData.QUIZ);
     } else if(increasedVotePartIndex > 4) {
-      console.log('good');
+      setIsBack(false);
+      setPageData(PageData.REVIEW);
     } else {
       setVotePartIndex(increasedVotePartIndex)
     }

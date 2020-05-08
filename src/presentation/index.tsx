@@ -16,7 +16,8 @@ import NewVoteCard from './VoteCards/NewVoteCard';
 import GrowVoteCard from './VoteCards/GrowVoteCard';
 import UnitVoteCard from './VoteCards/UnitVoteCard';
 import MasterVoteCard from './VoteCards/MasterVoteCard';
-import DumVoteCard from './VoteCards/DumVoteCard';
+import MessageVoteCard from './VoteCards/MessageVoteCard';
+import CustomVoteCard from './VoteCards/CustomVoteCard';
 import VoteFivePart from './Vote/VoteFivePart';
 import VoteFivePartDescription from './Vote/VoteFivePartDescription';
 import EpisodeVote from './VotePolls/EpisodeVote';
@@ -30,6 +31,8 @@ import VoteCustom from './Vote/VoteCustom';
 import VoteCustomDescription from './Vote/VoteCustomDescription';
 import VoteMessage from './Vote/VoteMessage';
 import VoteMessageDescription from './Vote/VoteMessageDescription';
+import Review from './Review';
+import Finish from './Finish';
 
 export { 
   App,
@@ -47,7 +50,8 @@ export {
   OriginalVoteCard,
   SleepVoteCard,
   NewVoteCard,
-  DumVoteCard,
+  MessageVoteCard,
+  CustomVoteCard,
   VoteFivePart,
   VoteFivePartDescription,
   EpisodeVote,
@@ -64,4 +68,6 @@ export {
   VoteCustomDescription,
   VoteMessage,
   VoteMessageDescription,
+  Review,
+  Finish, 
 };

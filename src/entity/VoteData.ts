@@ -15,7 +15,10 @@ export default interface VoteData {
   grow?: string[];
   master?: string[];
   custom?: {
-    episode: string;
+    episode: {
+      episode: number;
+      index: number;
+    };
     content: string;
   }[];
   message?: {

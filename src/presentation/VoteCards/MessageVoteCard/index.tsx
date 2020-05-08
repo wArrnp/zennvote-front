@@ -3,24 +3,23 @@ import React, { useState, useCallback } from 'react'
 import * as CS from '../CommonStyles';
 import * as S from './Styles';
 
-interface DumVoteCardProps {
-    topPlaceholder: string;
+interface MessageVoteCardProps {
     dumDataList: any[];
     handleSubmitEdit: (top: string, content: string) => void;
     handleDeleteByIndex: (index: number) => void;
 }
 
-const DumVoteCard:React.FC<DumVoteCardProps> = ({ topPlaceholder, dumDataList, handleSubmitEdit, handleDeleteByIndex }) => {
-    const [topValue, setTopValue] = useState<string>("");
+const MessageVoteCard:React.FC<MessageVoteCardProps> = ({ dumDataList, handleSubmitEdit, handleDeleteByIndex }) => {
+    const [name, setName] = useState<string>("");
     const [content, setContent] = useState<string>("");
 
-    const onClickSubmitButton = useCallback((top, content) => {
-        if(!!top && !!content) {
-            handleSubmitEdit(top, content);
-            setTopValue("");
+    const onClickSubmitButton = useCallback((name, content) => {
+        if(!!name && !!content) {
+            handleSubmitEdit(name, content);
+            setName("");
             setContent("");
         }
-    }, [handleSubmitEdit, setTopValue, setContent]);
+    }, [handleSubmitEdit, setName, setContent]);
 
     return (
         <CS.VoteCardsWrapper>
@@ -28,10 +27,8 @@ const DumVoteCard:React.FC<DumVoteCardProps> = ({ topPlaceholder, dumDataList, h
                 dumDataList.map((dumData, index) => (
                     <S.VoteDumItemWrapper key={index}>
                         <p>
-                            {   
-                                !!dumData.episode 
-                                ? dumData.episode
-                                : dumData.name
+                            { 
+                                dumData.name 
                             }
                         </p>
                         <p>
@@ -45,18 +42,18 @@ const DumVoteCard:React.FC<DumVoteCardProps> = ({ topPlaceholder, dumDataList, h
             }
             <S.VoteDumEditWrapper>
                 <S.VoteDumEditTop
-                    value={topValue}
-                    onChange={(e) => setTopValue(e.target.value)}
-                    placeholder={topPlaceholder}/>
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="이름을 입력해주세요."/>
                 <S.VoteDumEditContent 
                     placeholder="보내실 값을 보내주세요."
                     rows={3}
                     onChange={(e) => setContent(e.target.value)}
                     value={content}/>
-                <button onClick={() => onClickSubmitButton(topValue, content)}>추가</button>
+                <button onClick={() => onClickSubmitButton(name, content)}>추가</button>
             </S.VoteDumEditWrapper>
         </CS.VoteCardsWrapper>
     )
 }
 
-export default DumVoteCard
+export default MessageVoteCard

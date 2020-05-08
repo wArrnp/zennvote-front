@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { StoreState } from '../../../module';
 
 import * as S from './Styles';
-import { VoteMessageDescription, DumVoteCard } from '../../';
+import { VoteMessageDescription, MessageVoteCard } from '../../';
 import { setVoteByKeyValue } from '../../../module/vote';
 
 interface VoteMessageProps {
@@ -20,9 +20,9 @@ const VoteMessage: React.FC<VoteMessageProps> = ({ handleVotePart }) => {
         message: state.vote.message
     }))
 
-    const handleSubmitEdit = useCallback((episode: string, content: string) => {
+    const handleSubmitEdit = useCallback((name: string, content: string) => {
         const newMessage = [...message, {
-            episode,
+            name,
             content,
         }];
 
@@ -39,8 +39,7 @@ const VoteMessage: React.FC<VoteMessageProps> = ({ handleVotePart }) => {
     return (
         <S.VoteMessageWrapper>
             <VoteMessageDescription />
-            <DumVoteCard 
-                topPlaceholder="이름을 입력하세요"
+            <MessageVoteCard
                 dumDataList={message}
                 handleSubmitEdit={handleSubmitEdit}
                 handleDeleteByIndex={handleDeleteByIndex}

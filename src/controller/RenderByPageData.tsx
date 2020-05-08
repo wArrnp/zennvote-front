@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import PageData from '../entity/PageData';
-import { Landing, EmailInput, Quiz, Vote } from '../presentation';
+import { Landing, EmailInput, Quiz, Vote, Review, Finish } from '../presentation';
 
 export default function RenderByPageData(
   viewType: number, 
@@ -23,5 +23,11 @@ export default function RenderByPageData(
         setPageData={setPageData}
         isBack={isBack}
         setIsBack={setIsBack} />;
+    case PageData.REVIEW:
+      return <Review 
+        setPageData={setPageData}
+        setIsBack={setIsBack} />
+    case PageData.FINISH:
+      return <Finish />
   };
 };
