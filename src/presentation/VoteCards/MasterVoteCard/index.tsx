@@ -1,26 +1,10 @@
-import React, { useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
 import { SelectVote } from '../../';
-import { StoreState } from '../../../module';
-import { setVoteByKeyValue } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
 
 const MasterVoteCard = () => {
-    const dispatch = useDispatch();
-    const { masterReduxValue } = useSelector((state: StoreState) => ({
-        masterReduxValue: state.vote.master
-    }));
-
-    const confirmMasterVote = useCallback((masterValue) =>{
-        dispatch(
-            setVoteByKeyValue(
-                'master',
-                masterValue
-            )
-        )
-    }, [dispatch])
 
     return (
         <CS.VoteCardsWrapper>
@@ -41,8 +25,7 @@ const MasterVoteCard = () => {
           <SelectVote
             maximumSelect={1}
             selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
-            reduxValue={masterReduxValue}
-            confirmSelectVote={confirmMasterVote} />
+            voteCardName="master" />
         </CS.VoteCardsWrapper>
     )
 }

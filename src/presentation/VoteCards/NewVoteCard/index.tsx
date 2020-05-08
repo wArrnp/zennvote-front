@@ -1,27 +1,10 @@
-import React, { useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
 import { SelectVote } from '../../';
-import { StoreState } from '../../../module';
-import { setVoteByKeyValue } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
 
 const NewVoteCard = () => {
-    const dispatch = useDispatch();
-    const { newReduxValue } = useSelector((state: StoreState) => ({
-        newReduxValue: state.vote.new
-    }));
-
-    const confirmNewVote = useCallback((newValue) =>{
-        dispatch(
-            setVoteByKeyValue(
-                'new',
-                newValue
-            )
-        )
-    }, [dispatch])
-
     return (
         <CS.VoteCardsWrapper>
             <CS.VoteCardsIndex>두번째 부문</CS.VoteCardsIndex>
@@ -41,8 +24,7 @@ const NewVoteCard = () => {
           <SelectVote
             maximumSelect={3}
             selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
-            reduxValue={newReduxValue}
-            confirmSelectVote={confirmNewVote} />
+            voteCardName="new" />
         </CS.VoteCardsWrapper>
     )
 }

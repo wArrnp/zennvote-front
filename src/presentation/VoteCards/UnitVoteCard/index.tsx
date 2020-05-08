@@ -1,26 +1,11 @@
-import React, { useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
 import { SelectVote } from '../../';
-import { StoreState } from '../../../module';
-import { setVoteByKeyValue } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
 
 const UnitVoteCard = () => {
-    const dispatch = useDispatch();
-    const { unitReduxValue } = useSelector((state: StoreState) => ({
-        unitReduxValue: state.vote.unit
-    }));
 
-    const confirmunitVote = useCallback((unitValue) =>{
-        dispatch(
-            setVoteByKeyValue(
-                'unit',
-                unitValue
-            )
-        )
-    }, [dispatch])
 
     return (
         <CS.VoteCardsWrapper>
@@ -41,8 +26,7 @@ const UnitVoteCard = () => {
           <SelectVote
             maximumSelect={3}
             selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
-            reduxValue={unitReduxValue}
-            confirmSelectVote={confirmunitVote} />
+            voteCardName="unit" />
         </CS.VoteCardsWrapper>
     )
 }

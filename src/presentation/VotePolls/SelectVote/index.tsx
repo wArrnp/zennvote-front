@@ -1,41 +1,64 @@
 import React, { useState, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { SelectVoteItem } from '../../';
 
 import * as S from './Styles';
+import { StoreState } from '../../../module';
+import { setVoteByKeyValue } from '../../../module/vote';
 
 interface SelectVoteProps {
     maximumSelect: number;
     minimumSelect?: number;
     selectList: string[];
-    reduxValue: string[] | undefined;
-    confirmSelectVote: (voteData: string[]) => void;
+    voteCardName: string;
 }
 
-const SelectVote = ({ maximumSelect, minimumSelect, selectList, reduxValue, confirmSelectVote }: SelectVoteProps) => {
-    const [voteList, setVoteList] = useState<string[]>(reduxValue || []);
+const SelectVote = ({ maximumSelect, minimumSelect, selectList, voteCardName }: SelectVoteProps) => {
+    const dispatch = useDispatch();
+    const { selectVoteData = [] } = useSelector((state: StoreState) => ({
+        selectVoteData: state.vote[voteCardName]
+    }))
+    const [isOverlapped, setIsOverlapped] = useState<boolean>(false);
 
     const handleChangeSetVoteList = useCallback(
         (index: number, value: string) => {
-            const newVoteList = [...voteList];
+            const newVoteList = [...selectVoteData];
+            let isOverlap = false;
 
             newVoteList[index] = value;
-            setVoteList(newVoteList);
+
+            newVoteList.forEach(forEachV => {
+                
+                if(newVoteList.filter(filterV => !!filterV && !!forEachV && filterV === forEachV).length > 1) {
+                    isOverlap = true;
+                }
+            })
+
+            dispatch(setVoteByKeyValue(voteCardName, newVoteList));
+
+            setIsOverlapped(isOverlap);
         },
-        [voteList, setVoteList],
+        [selectVoteData, dispatch, voteCardName],
     )
     
     return (
         <>
             {
-                voteList.map((voteValue: string, index: number) => (
-                    <SelectVoteItem key={`${index}-${voteValue}`} selectList={selectList} selectedValue={voteValue} handleChangeSetVoteList={(v: string) => handleChangeSetVoteList(index, v)}/>
+                selectVoteData.map((voteValue: string, index: number) => (
+                    <SelectVoteItem
+                        key={`${index}-${voteValue}`}
+                        selectList={selectList}
+                        selectedValue={voteValue}
+                        handleChangeSetVoteList={(v: string) => handleChangeSetVoteList(index, v)}/>
                 ))
             }
-            <S.SelectVoteConfirmWrapper>
-                <S.SelectVoteConfirm onClick={() => confirmSelectVote(voteList)}>
-                    적용
-                </S.SelectVoteConfirm>
-            </S.SelectVoteConfirmWrapper>
+            {
+                isOverlapped && (
+                    <S.SelectVoteErrorMessage>
+                        중복 투표가 존재합니다.
+                    </S.SelectVoteErrorMessage>
+                )
+            }
         </>
     )
 }

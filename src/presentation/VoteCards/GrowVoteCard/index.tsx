@@ -1,27 +1,10 @@
-import React, { useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { SelectVote } from '../../';
-import { StoreState } from '../../../module';
-import { setVoteByKeyValue } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
 
 const GrowVoteCard = () => {
-    const dispatch = useDispatch();
-    const { growReduxValue } = useSelector((state: StoreState) => ({
-        growReduxValue: state.vote.grow
-    }));
-
-    const confirmGrowVote = useCallback((growValue) =>{
-        dispatch(
-            setVoteByKeyValue(
-                'grow',
-                growValue
-            )
-        )
-    }, [dispatch])
-
     return (
         <CS.VoteCardsWrapper>
             <CS.VoteCardsIndex>세번째 부문</CS.VoteCardsIndex>
@@ -41,8 +24,7 @@ const GrowVoteCard = () => {
           <SelectVote
             maximumSelect={3}
             selectList={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
-            reduxValue={growReduxValue}
-            confirmSelectVote={confirmGrowVote} />
+            voteCardName="grow"/>
         </CS.VoteCardsWrapper>
     )
 }
