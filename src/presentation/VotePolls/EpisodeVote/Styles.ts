@@ -27,7 +27,11 @@ export const EpisodeVoteInputWrapper = styled.span`
 export const EpisodeVoteInput = styled.input`
   padding: 10px 15px;
   width: 60px;
-  margin-right: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+  
+  border: none;
+  border-bottom: 1px solid black;
 `
 export const EpisodeVoteStatus = styled.span`
   display: inline-flex;
