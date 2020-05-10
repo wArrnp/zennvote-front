@@ -18,7 +18,7 @@ const ContentVoteCard: React.FC<ContentVoteCardProps> = ({ setCanPass }) => {
 
   useEffect(() => {
     const inputCount = content?.filter(v => !!v.episode && !!v.index).length || 0;
-    const errorCount = content?.filter(v => !!v.error || !!v.overlapped).length || 0;
+    const errorCount = content?.filter(v => !!v.error).length || 0;
 
 
     if(inputCount <= 3 && inputCount >= 1 && errorCount === 0) {

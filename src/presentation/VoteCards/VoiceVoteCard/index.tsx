@@ -18,7 +18,7 @@ const VoiceVoteCard: React.FC<VoiceVoteCardProps> = ({ setCanPass }) => {
 
   useEffect(() => {
     const inputCount = voice?.filter(v => !!v.producer && !!v.song).length || 0;
-    const errorCount = voice?.filter(v => !!v.error || !!v.overlapped).length || 0;
+    const errorCount = voice?.filter(v => !!v.error).length || 0;
 
     if(inputCount <= 5 && inputCount >= 1 && errorCount === 0) {
       setCanPass(true);
