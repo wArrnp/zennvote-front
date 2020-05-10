@@ -27,8 +27,12 @@ const EmailInput = ({ setPageData }:EmailInputProps) => {
   }, [emailByRedux]);
 
   const onClickNext = useCallback((email) => {
+    if(!email) {
+      enqueueSnackbar("이메일을 입력해주세요.", { variant: 'error' });
+      return;
+    }
     if(!checkEmailRegex(email)) {
-      enqueueSnackbar("이메일 양식이 틀렸습니다.", { variant: 'error' });
+      enqueueSnackbar("올바른 이메일을 입력해주세요.", { variant: 'error' });
       return;
     }
 

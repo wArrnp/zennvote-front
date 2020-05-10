@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import RenderToVoteFivePart from '../../../controller/RenderToVoteFivePart';
 
 import * as S from './Styles';
+import { useSnackbar } from 'notistack';
 
 interface VoteFivePartProps {
   handleVotePart: (increase:number) => void;
@@ -11,7 +12,8 @@ interface VoteFivePartProps {
 
 const VoteFivePart = ({handleVotePart, isVoteBack, setIsVoteBack}:VoteFivePartProps) => {
   const [pageStep, setPageStep] = useState(isVoteBack? 5: 0);
-  const [canPass, setCanPass] = useState<boolean>(false);
+  const [canPass, setCanPass] = useState<string | undefined>('투표 정보를 입력해주세요.');
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     if(isVoteBack) {
@@ -24,16 +26,20 @@ const VoteFivePart = ({handleVotePart, isVoteBack, setIsVoteBack}:VoteFivePartPr
     if(increasedPageStep < 0) {
       handleVotePart(-1);
     } else if(increasedPageStep > 5) {
-      if(canPass) {
+      if(canPass === undefined) {
         handleVotePart(1)
+      } else {
+        enqueueSnackbar(canPass, { variant: 'error' });
       }
     } else {
-      if(increase > 0 && !canPass) return;
+      if(increase > 0 && canPass !== undefined) {
+        enqueueSnackbar(canPass, { variant: 'error' });
+        return;
+      }
 
-      setCanPass(false);
       setPageStep(increasedPageStep);
     }
-  }, [pageStep, handleVotePart, canPass])  
+  }, [enqueueSnackbar, pageStep, handleVotePart, canPass])  
 
   return (
     <S.VoteFivePartWrapper>

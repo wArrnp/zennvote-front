@@ -7,7 +7,7 @@ import { setVoteByKeyValueThunk } from '../../../module/vote';
 import * as CS from '../CommonStyles';
 
 interface PitchVoteCardProps {
-  setCanPass: (canPass: boolean) => void;
+  setCanPass: (canPass: string | undefined) => void;
 }
 
 const PitchVoteCard: React.FC<PitchVoteCardProps> = ({ setCanPass }) => {
@@ -17,17 +17,20 @@ const PitchVoteCard: React.FC<PitchVoteCardProps> = ({ setCanPass }) => {
   }));
 
   useEffect(() => {
-    const inputCount = pitch?.filter(v => !!v.producer && !!v.song && !v.error).length || 0;
+    const inputCount = pitch?.filter(v => !!v.producer && !!v.song).length || 0;
     const errorCount = pitch?.filter(v => !!v.error).length || 0;
 
-
-    if(inputCount <= 5 && inputCount >= 1 && errorCount === 0) {
-      setCanPass(true);
+    if (inputCount < 1)
+      setCanPass('필수 투표 항목입니다. 투표를 진행해주세요.');
+    else if (errorCount > 0)
+      setCanPass('투표 항목에 오류가 있습니다. 확인해주세요.');
+    else {
+      setCanPass(undefined);
     }
   }, [pitch, setCanPass])
 
   const confirmEpisodeVote = useCallback((pitch) => {
-    setCanPass(false);
+    setCanPass('투고 정보를 조회하고 있습니다. 잠시만 기다려주세요.');
 
     dispatch(
       setVoteByKeyValueThunk(

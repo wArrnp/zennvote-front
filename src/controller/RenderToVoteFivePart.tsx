@@ -1,7 +1,7 @@
 import React from 'react';
 import { PitchVoteCard, VoiceVoteCard, FunnyVoteCard, ContentVoteCard, OriginalVoteCard, VoteFivePartDescription } from '../presentation';
 
-export default function(pageIndex: number, setCanPass: (canPass: boolean) => void): React.ReactNode {
+export default function(pageIndex: number, setCanPass: (canPass: string | undefined) => void): React.ReactNode {
   switch(pageIndex) {
     case 0:
       return <VoteFivePartDescription setCanPass={setCanPass}/>

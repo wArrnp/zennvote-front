@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useSnackbar } from 'notistack';
 import { QuizItem } from '../';
 import { StoreState } from '../../module';
 import { setQuizDataThunk, setQuizSelectedValueByIndex } from '../../module/quiz';
@@ -21,6 +22,7 @@ const Quiz = ({ setPageData, isBack, setIsBack }: QuizProps) => {
     quizDatas: state.quiz.quizDatas,
     selectedQuizValues: state.quiz.selectedValues,
   }));
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     if (!(
@@ -53,17 +55,19 @@ const Quiz = ({ setPageData, isBack, setIsBack }: QuizProps) => {
 
         setCurrentPageIndex(increasedIndex);
       } else {
-        if(selectedQuizValues[currentPageIndex] !== -1) {
-          if (increasedIndex >= quizDatas.length) {
-            setPageData(PageData.VOTE);
-            return;
-          }
-
-          setCurrentPageIndex(increasedIndex);
+        if (selectedQuizValues[currentPageIndex] === -1) {
+          enqueueSnackbar('정답을 선택해주세요.', { variant: 'error' });
+          return;
         }
+        if (increasedIndex >= quizDatas.length) {
+          setPageData(PageData.VOTE);
+          return;
+        }
+
+        setCurrentPageIndex(increasedIndex);
       }
     }
-  }, [currentPageIndex, quizDatas.length, selectedQuizValues, setPageData]);
+  }, [enqueueSnackbar, currentPageIndex, quizDatas.length, selectedQuizValues, setPageData]);
 
   return (
     <S.QuizWrapper>
