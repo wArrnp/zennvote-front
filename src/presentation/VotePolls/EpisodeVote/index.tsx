@@ -33,27 +33,31 @@ const EpisodeVote = ({ confirmEpisodeVote, voteReduxData }: EpisodeVoteProps) =>
             <S.EpisodeVoteInputWrapper>
               <S.EpisodeVoteInput
                 type="number"
-                onChange={(e) => handleChangeInput("episode", Number(e.target.value), index)} value={data.episode} />
+                placeholder='회차'
+                onChange={(e) => handleChangeInput("episode", Number(e.target.value), index)} value={data.episode || ''} />
               회 
             </S.EpisodeVoteInputWrapper>
             <S.EpisodeVoteInputWrapper>
               <S.EpisodeVoteInput
                 type="number"
+                placeholder='번호'
                 onChange={(e) => handleChangeInput("index", Number(e.target.value), index)}
-                value={data.index} />
+                value={data.index || ''} />
               번
             </S.EpisodeVoteInputWrapper>
             {(!!data.error || !!data.song) && (
-              <S.EpisodeVoteStatus isError={!!data.error}>
-                {!!data.error? 
+              <S.EpisodeVoteStatus isError={!data.song}>
+                {!data.song? 
                   data.error
                   : (
                     <>
                       <span>{data.song}</span>
                       <S.EpisodeVoteProducer isOverlapped={false}>{data.producer}</S.EpisodeVoteProducer>
                       {
-                        data.overlapped && (
-                          <S.EpisodeVoteProducer isOverlapped={true}>{"중복된 프로듀서가 있습니다."}</S.EpisodeVoteProducer>
+                        (data.error || data.overlapped) && (
+                          <S.EpisodeVoteProducer isOverlapped={true}>
+                            {data.error || "중복된 프로듀서가 있습니다."}
+                          </S.EpisodeVoteProducer>
                         )
                       }
                     </>
