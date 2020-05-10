@@ -28,9 +28,9 @@ const CustomVoteCard:React.FC<CustomVoteCardProps> = ({ dumDataList, handleSubmi
             {
                 dumDataList.map((dumData, index) => (
                     <S.CustomVoteItemWrapper key={index}>
-                            <S.CustomVoteItemEpisode><b>{ dumData.episode.episode }</b>회 <b>{ dumData.episode.index }</b>번</S.CustomVoteItemEpisode>
-                            <S.CustomVoteItemContent> { dumData.content } </S.CustomVoteItemContent>
-                            <S.CustomVoteItemDeleteButton onClick={() => handleDeleteByIndex(index)}>-</S.CustomVoteItemDeleteButton>
+                        <S.CustomVoteItemEpisode><b>{ dumData.episode.episode }</b>회 <b>{ dumData.episode.index }</b>번</S.CustomVoteItemEpisode>
+                        <S.CustomVoteItemContent> { dumData.content } </S.CustomVoteItemContent>
+                        <S.CustomVoteItemDeleteButton onClick={() => handleDeleteByIndex(index)}>-</S.CustomVoteItemDeleteButton>
                     </S.CustomVoteItemWrapper>
                 ))
             }

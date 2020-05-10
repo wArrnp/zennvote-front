@@ -23,12 +23,6 @@ const App = () => {
           { RenderByPageData(pageData, setPageData, isBack, setIsBack) }
         </S.ContentInnerWrapper>
       </S.ContentWrapper>
-      <S.SearchWrapper enableSearch={enableSearch}>
-        <S.SearchToggleButton onClick={() => setEnableSearch(!enableSearch)}>
-          <S.SearchToggleButtonImg src={SearchImg} alt="search"/>
-        </S.SearchToggleButton>
-        123
-      </S.SearchWrapper>
       <Footer />
     </S.AppWrapper>
   );

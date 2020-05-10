@@ -37,9 +37,11 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const AppWrapper = styled.div`
-  position: relative;
   min-height: 100vh;
   background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ContentWrapper = styled.div`

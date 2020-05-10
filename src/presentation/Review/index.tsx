@@ -75,9 +75,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.pitch?.map((v) => (
                                         <S.ReviewContentItem key={`${v.song}-${v.producer}`}>
-                                            <p>
-                                                {v.song}
-                                            </p>
+                                            <S.ReviewContentItemTop>
+                                                {v.episode}회 {v.index}번 {v.song}
+                                            </S.ReviewContentItemTop>
                                             <S.ReviewContentItemBottom>
                                                 {v.producer}
                                             </S.ReviewContentItemBottom>
@@ -94,9 +94,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.voice?.map((v) => (
                                         <S.ReviewContentItem key={`${v.song}-${v.producer}`}>
-                                            <p>
-                                                {v.song}
-                                            </p>
+                                            <S.ReviewContentItemTop>
+                                                {v.episode}회 {v.index}번 {v.song}
+                                            </S.ReviewContentItemTop>
                                             <S.ReviewContentItemBottom>
                                                 {v.producer}
                                             </S.ReviewContentItemBottom>
@@ -113,9 +113,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.funny?.map((v) => (
                                         <S.ReviewContentItem key={`${v.song}-${v.producer}`}>
-                                            <p>
-                                                {v.song}
-                                            </p>
+                                            <S.ReviewContentItemTop>
+                                                {v.episode}회 {v.index}번 {v.song}
+                                            </S.ReviewContentItemTop>
                                             <S.ReviewContentItemBottom>
                                                 {v.producer}
                                             </S.ReviewContentItemBottom>
@@ -132,9 +132,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.content?.map((v) => (
                                         <S.ReviewContentItem key={`${v.song}-${v.producer}`}>
-                                            <p>
-                                                {v.song}
-                                            </p>
+                                            <S.ReviewContentItemTop>
+                                                {v.episode}회 {v.index}번 {v.song}
+                                            </S.ReviewContentItemTop>
                                             <S.ReviewContentItemBottom>
                                                 {v.producer}
                                             </S.ReviewContentItemBottom>
@@ -151,9 +151,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.original?.map((v) => (
                                         <S.ReviewContentItem key={`${v.song}-${v.producer}`}>
-                                            <p>
-                                                {v.song}
-                                            </p>
+                                            <S.ReviewContentItemTop>
+                                                {v.episode}회 {v.index}번 {v.song}
+                                            </S.ReviewContentItemTop>
                                             <S.ReviewContentItemBottom>
                                                 {v.producer}
                                             </S.ReviewContentItemBottom>
@@ -170,9 +170,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.sleep?.map((v) => (
                                         <S.ReviewContentItem key={`${v.song}-${v.producer}`}>
-                                            <p>
-                                                {v.song}
-                                            </p>
+                                            <S.ReviewContentItemTop>
+                                                {v.episode}회 {v.index}번 {v.song}
+                                            </S.ReviewContentItemTop>
                                             <S.ReviewContentItemBottom>
                                                 {v.producer}
                                             </S.ReviewContentItemBottom>
@@ -189,9 +189,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.unit?.map((v) => (
                                         <S.ReviewContentItem key={v}>
-                                            <p>
+                                            <S.ReviewContentItemTop>
                                                 {v}
-                                            </p>
+                                            </S.ReviewContentItemTop>
                                         </S.ReviewContentItem>
                                     )) || ''
                                 }
@@ -205,9 +205,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.new?.map((v) => (
                                         <S.ReviewContentItem key={v}>
-                                            <p>
+                                            <S.ReviewContentItemTop>
                                                 {v}
-                                            </p>
+                                            </S.ReviewContentItemTop>
                                         </S.ReviewContentItem>
                                     )) || ''
                                 }
@@ -221,9 +221,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.grow?.map((v) => (
                                         <S.ReviewContentItem key={v}>
-                                            <p>
+                                            <S.ReviewContentItemTop>
                                                 {v}
-                                            </p>
+                                            </S.ReviewContentItemTop>
                                         </S.ReviewContentItem>
                                     )) || ''
                                 }
@@ -237,9 +237,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.master?.map((v) => (
                                         <S.ReviewContentItem key={v}>
-                                            <p>
+                                            <S.ReviewContentItemTop>
                                                 {v}
-                                            </p>
+                                            </S.ReviewContentItemTop>
                                         </S.ReviewContentItem>
                                     )) || ''
                                 }
@@ -253,12 +253,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.custom?.map((v) => (
                                         <S.ReviewContentItem key={`${v.episode.episode}-${v.episode.index}-${v.content}`}>
-                                            <p>
-                                                <span>
-                                                    {v.episode.episode}
-                                                    {v.episode.index}
-                                                </span>
-                                            </p>
+                                            <S.ReviewContentItemTop>
+                                                <b>{v.episode.episode}</b>회 <b>{v.episode.index}</b>번
+                                            </S.ReviewContentItemTop>
                                             <S.ReviewContentItemBottom>
                                                 {v.content}
                                             </S.ReviewContentItemBottom>
@@ -275,9 +272,9 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {
                                     willFetchData.data.message?.map((v) => (
                                         <S.ReviewContentItem key={`${v.name}-${v.content}`}>
-                                            <p>
-                                                {v.name}
-                                            </p>
+                                            <S.ReviewContentItemTop>
+                                                <b>{v.name}</b>에게
+                                            </S.ReviewContentItemTop>
                                             <S.ReviewContentItemBottom>
                                                 {v.content}
                                             </S.ReviewContentItemBottom>
@@ -291,12 +288,14 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                 <S.ReviewButtonWrapper>
                   <S.ReviewButton
                     isNext={false}
-                    onClick={() => handleGoBack()}>
+                    onClick={() => handleGoBack()}
+                    tabIndex={2}>
                     이전
                   </S.ReviewButton>
                   <S.ReviewButton
                     isNext={true}
-                    onClick={handleSubmitVote}>
+                    onClick={handleSubmitVote}
+                    tabIndex={1}>
                     완료
                   </S.ReviewButton>
                 </S.ReviewButtonWrapper>

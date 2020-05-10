@@ -26,31 +26,31 @@ const MessageVoteCard:React.FC<MessageVoteCardProps> = ({ dumDataList, handleSub
             {
                 dumDataList.map((dumData, index) => (
                     <S.VoteDumItemWrapper key={index}>
-                        <p>
-                            { 
-                                dumData.name 
-                            }
-                        </p>
-                        <p>
-                            {
-                                dumData.content
-                            }
-                        </p>
-                        <button onClick={() => handleDeleteByIndex(index)}>삭제</button>
+                        <S.VoteDumItemTop>
+                            <S.VoteDumItemName><b>{ dumData.name }</b> 에게</S.VoteDumItemName>
+                            <S.VoteDumItemDeleteButton onClick={() => handleDeleteByIndex(index)}>-</S.VoteDumItemDeleteButton>
+                        </S.VoteDumItemTop>
+                        <S.VoteDumItemContent>
+                            { dumData.content.split('\n').map((line: string) => (<>{line} <br/></>)) }
+                        </S.VoteDumItemContent>
                     </S.VoteDumItemWrapper>
                 ))
             }
             <S.VoteDumEditWrapper>
-                <S.VoteDumEditTop
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="이름을 입력해주세요."/>
+                <S.VoteDumEditTop>
+                    <S.VoteDumEditShortField
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="이름을 입력해주세요."/>
+                    <S.CustomVoteItemAddButton onClick={() => onClickSubmitButton(name, content)}>
+                        +
+                    </S.CustomVoteItemAddButton>
+                </S.VoteDumEditTop>
                 <S.VoteDumEditContent 
                     placeholder="보내실 값을 보내주세요."
                     rows={3}
                     onChange={(e) => setContent(e.target.value)}
                     value={content}/>
-                <button onClick={() => onClickSubmitButton(name, content)}>추가</button>
             </S.VoteDumEditWrapper>
         </CS.VoteCardsWrapper>
     )

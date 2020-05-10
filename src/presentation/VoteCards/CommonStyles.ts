@@ -25,6 +25,6 @@ export const VoteCardsDescription = styled.p`
 `
 
 export const VoteCardsDivision = styled.p`
-  margin: 10px 0;
+  margin: 30px 0;
   border-bottom: 1px solid #ccc;
 `

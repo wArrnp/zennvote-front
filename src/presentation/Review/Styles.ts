@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const innerWidth = '80%';
-
 interface ReviewButtonProps {
     isNext: boolean;
 }
@@ -13,14 +11,14 @@ export const ReviewContainer = styled.div`
 `
 
 export const ReviewContentContainer = styled.div`
-    width: ${innerWidth};
+    width: 80%;
     margin: 0 auto;
 `
 
 export const ReviewContentItemWrapper = styled.div`
     width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 5px;d
+    padding: 18px;
+    margin-bottom: 5px;
     box-sizing: border-box;
     border-radius: 5px;
     box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.15);
@@ -29,13 +27,22 @@ export const ReviewContentItemWrapper = styled.div`
 export const ReviewContentItemTitle = styled.p`
     font-weight: bold;
     font-size: 16px;
+    margin: 0;
+    margin-bottom: 12px;
     padding-bottom: 10px;
     border-bottom: 1px solid grey;
 `
 
 export const ReviewContentItem = styled.div`
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+`
+
+export const ReviewContentItemSubtitle = styled.p`
+
 `
 
 export const ReviewContentItemTop = styled.p`
@@ -46,10 +53,13 @@ export const ReviewContentItemBottom = styled.p`
     font-size: 12px;
     margin: 0;
     color: grey;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 `
 export const ReviewButtonWrapper = styled.div`
   display: flex;
-  width: ${innerWidth};
+  width: 100%;
   justify-content: space-between;
   margin: auto;
   margin-top: 30px;
