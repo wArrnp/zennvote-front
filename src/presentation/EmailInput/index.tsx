@@ -1,10 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { useSnackbar } from 'notistack';
 import PageData from '../../entity/PageData';
 import checkEmailRegex from '../../controller/CheckEmailRegex';
 import { useDispatch, useSelector } from "react-redux";
 import { setEmail as setReduxEmail } from '../../module/email';
 import { StoreState } from '../../module';
-import * as Alert from '../../util/Alert';
 
 import * as S from './Styles';
 
@@ -18,6 +18,7 @@ const EmailInput = ({ setPageData }:EmailInputProps) => {
   const { emailByRedux } = useSelector((state: StoreState) => (
     { emailByRedux: state.email }
   ));
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     if(!!emailByRedux) {
@@ -27,13 +28,13 @@ const EmailInput = ({ setPageData }:EmailInputProps) => {
 
   const onClickNext = useCallback((email) => {
     if(!checkEmailRegex(email)) {
-      Alert.error("이메일 양식이 틀렸습니다.");
+      enqueueSnackbar("이메일 양식이 틀렸습니다.", { variant: 'error' });
       return;
     }
 
     dispatch(setReduxEmail(email));
     setPageData(PageData.QUIZ);
-  }, [setPageData, dispatch]);
+  }, [enqueueSnackbar, setPageData, dispatch]);
 
   return (
     <S.EmailInputWrapper>

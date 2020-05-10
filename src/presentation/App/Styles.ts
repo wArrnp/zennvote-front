@@ -119,3 +119,16 @@ export const SearchToggleButtonImg = styled.img`
   width: 30px;
   height: auto;
 `;
+
+export const SnackbarCloseButton = styled.span`
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+  margin-right: 4px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  &:hover {
+    background: #00000040;
+  }
+`
