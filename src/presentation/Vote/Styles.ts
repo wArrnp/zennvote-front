@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-const InnerWidth = 670;
-
 export const VoteWrapper = styled.div`
-  width: ${InnerWidth}px;
+  width: 80%;
   margin: 0 auto;
 `;

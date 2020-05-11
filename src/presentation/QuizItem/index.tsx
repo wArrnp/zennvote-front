@@ -4,15 +4,16 @@ import QuizData from '../../entity/QuizData';
 import * as S from './Styles';
 
 interface QuizItemProps extends QuizData {
+  index: number;
   selectedIndex:number;
   handleQuizSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const QuizItem = ({ title, choices, selectedIndex, handleQuizSelect }: QuizItemProps) => {
+const QuizItem = ({ index, title, contents: choices, selectedIndex, handleQuizSelect }: QuizItemProps) => {
   return (
     <S.QuizItemWrapper>
       <S.QuizItemTitle>
-        {title}
+        {index + 1}. {title}
       </S.QuizItemTitle>
       {
         choices.map((choice, index) => (

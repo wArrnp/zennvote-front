@@ -1,20 +1,46 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EpisodeVote } from '../../';
 import { StoreState } from '../../../module';
-import { setVoteByKeyValue } from '../../../module/vote';
+import { setVoteByKeyValueThunk } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
-const FunnyVoteCard = () => {
+interface FunnyVoteCardProps {
+  setCanPass: (canPass: string | undefined) => void;
+}
+
+const FunnyVoteCard: React.FC<FunnyVoteCardProps> = ({ setCanPass }) => {
   const dispatch = useDispatch();
   const { funny } = useSelector((state:StoreState) => ({
     funny: state.vote.funny
   }));
 
+  useEffect(() => {
+    const inputCount = funny?.filter(v => !!v.episode && !!v.index).length || 0;
+    const errorCount = funny?.filter(v => !!v.error).length || 0;
+
+    if (inputCount < 1)
+      setCanPass('필수 투표 항목입니다. 투표를 진행해주세요.');
+    else if (errorCount > 0)
+      setCanPass('투표 항목에 오류가 있습니다. 확인해주세요.');
+    else {
+      setCanPass(undefined);
+    }
+  }, [funny, setCanPass])
+
   const confirmEpisodeVote = useCallback((funny) => {
-    dispatch(setVoteByKeyValue('funny', funny));
-  }, [dispatch]);
+    setCanPass('투고 정보를 조회하고 있습니다. 잠시만 기다려주세요.');
+
+    dispatch(
+      setVoteByKeyValueThunk(
+        funny,
+        'funny',
+        true
+      )
+    );
+
+  }, [dispatch, setCanPass]);
 
   return (
     <CS.VoteCardsWrapper>

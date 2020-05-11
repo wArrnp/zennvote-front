@@ -4,4 +4,6 @@ export default interface EpisodeData {
   song: string;
   producer: string;
   votable?: boolean;
+  error?: string;
+  overlapped?: boolean;
 }

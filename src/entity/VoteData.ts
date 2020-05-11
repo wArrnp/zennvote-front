@@ -1,6 +1,8 @@
 import EpisodeData from './EpisodeData';
 
 export default interface VoteData {
+  [key: string]: any[] | undefined
+
   problem?: number[];
   pitch?: EpisodeData[];
   voice?: EpisodeData[];
@@ -13,7 +15,10 @@ export default interface VoteData {
   grow?: string[];
   master?: string[];
   custom?: {
-    episode: string;
+    episode: {
+      episode: number;
+      index: number;
+    };
     content: string;
   }[];
   message?: {

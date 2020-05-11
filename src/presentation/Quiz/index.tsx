@@ -1,74 +1,87 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useSnackbar } from 'notistack';
 import { QuizItem } from '../';
-import QuizData from '../../entity/QuizData';
 import { StoreState } from '../../module';
-import { setQuizData } from '../../module/quiz';
+import { setQuizDataThunk, setQuizSelectedValueByIndex } from '../../module/quiz';
 import PageData from '../../entity/PageData';
-import { getQuizDatas } from '../../controller/Api';
-import * as Alert from '../../util/Alert';
+
 
 import * as S from './Styles';
 
 interface QuizProps {
   setPageData: (pageData: number) => void;
+  isBack: boolean;
+  setIsBack: (isBack: boolean) => void;
 }
 
-const Quiz = ({ setPageData }: QuizProps) => {
-  const [selectedQuizValues, setSelectedQuizValues] = useState<number[]>([]);
-  const [quizzes, setQuizzes] = useState<QuizData[]>([]);
+const Quiz = ({ setPageData, isBack, setIsBack }: QuizProps) => {
   const [currentPageIndex, setCurrentPageIndex] = useState<number>(0);
   const dispatch = useDispatch();
-  const { quizDatas, reduxSelectedQuizValues } = useSelector((state: StoreState) => ({
+  const { quizDatas, selectedQuizValues } = useSelector((state: StoreState) => ({
     quizDatas: state.quiz.quizDatas,
-    reduxSelectedQuizValues: state.quiz.selectedValues,
+    selectedQuizValues: state.quiz.selectedValues,
   }));
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
-    if ((quizDatas?.length ?? 0) !== 0 && (reduxSelectedQuizValues?.length ?? 0) !== 0) {
-      setQuizzes(quizDatas);
-      setSelectedQuizValues(reduxSelectedQuizValues);
-      return;
+    if (!(
+        (quizDatas?.length ?? 0) !== 0 && 
+        (selectedQuizValues?.length ?? 0) !== 0)
+      ) {
+      dispatch(setQuizDataThunk());
     }
-    getQuizDatas()
-      .then((res:QuizData[]) => {
-        setQuizzes(res);
-        setSelectedQuizValues(new Array(res.length).fill(-1));
-      });
-  }, [quizDatas, reduxSelectedQuizValues]);
+    if(
+      (quizDatas?.length ?? 0) !== 0 &&
+      isBack
+    ) {
+      setCurrentPageIndex(quizDatas.length - 1);
+      setIsBack(false);
+    }
+  }, [quizDatas, selectedQuizValues, dispatch, isBack, setIsBack]);
 
   const handleQuizValues = useCallback((event: React.ChangeEvent<HTMLInputElement>, index: number) => {
-    const newSelected = [...selectedQuizValues];
-    newSelected[index] = parseInt(event.target.value);
-    setSelectedQuizValues(newSelected);
-  }, [selectedQuizValues]);
+    dispatch(setQuizSelectedValueByIndex(index, parseInt(event.target.value)));
+  }, [dispatch]);
 
   const handleClickController = useCallback((increase: number) => {
     const increasedIndex = currentPageIndex + increase;
-    if (increasedIndex < 0 || increasedIndex >= quizzes.length) {
-      dispatch(setQuizData(quizzes, selectedQuizValues));
-      if (increasedIndex < 0) {
-        setPageData(PageData.EMAIL_INPUT);
-      } else if (increasedIndex >= quizzes.length) {
-        if(selectedQuizValues.filter((v) => v === -1).length !== 0) {
-          Alert.error("참가하지 않은 퀴즈가 있습니다.");
-          return false
+    if(!!quizDatas.length) {
+      if(increase < 1) {
+        if (increasedIndex < 0) {
+          setPageData(PageData.EMAIL_INPUT);
+          return;
         }
-        setPageData(PageData.VOTE);
+
+        setCurrentPageIndex(increasedIndex);
+      } else {
+        if (selectedQuizValues[currentPageIndex] === -1) {
+          enqueueSnackbar('정답을 선택해주세요.', { variant: 'error' });
+          return;
+        }
+        if (increasedIndex >= quizDatas.length) {
+          setPageData(PageData.VOTE);
+          return;
+        }
+
+        setCurrentPageIndex(increasedIndex);
       }
-      return false;
     }
-    setCurrentPageIndex(increasedIndex);
-  }, [currentPageIndex, quizzes, setCurrentPageIndex, dispatch, selectedQuizValues, setPageData]);
+  }, [enqueueSnackbar, currentPageIndex, quizDatas.length, selectedQuizValues, setPageData]);
 
   return (
     <S.QuizWrapper>
       <S.QuizContentWrapper>
         {
-          (quizzes?.length ?? 0) !== 0 && !!quizzes[currentPageIndex] && (
+          quizDatas.length === 0 ? (
+            <S.QuizLoadingWrapper>
+              <S.QuizLoading />
+            </S.QuizLoadingWrapper>
+          ): (quizDatas?.length ?? 0) !== 0 && !!quizDatas[currentPageIndex] && (
             <QuizItem
-              title={quizzes[currentPageIndex].title}
-              choices={quizzes[currentPageIndex].choices}
+              index={currentPageIndex}
+              title={quizDatas[currentPageIndex].title}
+              contents={quizDatas[currentPageIndex].contents}
               selectedIndex={selectedQuizValues[currentPageIndex]}
               handleQuizSelect={
                 (event: React.ChangeEvent<HTMLInputElement>) => handleQuizValues(event, currentPageIndex)

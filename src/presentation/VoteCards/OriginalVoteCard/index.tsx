@@ -1,20 +1,47 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EpisodeVote } from '../../';
 import { StoreState } from '../../../module';
-import { setVoteByKeyValue } from '../../../module/vote';
+import { setVoteByKeyValueThunk } from '../../../module/vote';
 
 import * as CS from '../CommonStyles';
 
-const OriginalVoteCard = () => {
+interface OriginalVoteCardProps {
+  setCanPass: (canPass: string | undefined) => void;
+}
+
+const OriginalVoteCard: React.FC<OriginalVoteCardProps> = ({ setCanPass }) => {
   const dispatch = useDispatch();
   const { original } = useSelector((state:StoreState) => ({
     original: state.vote.original
   }));
 
-  const confirmEpisodeVote = useCallback((original) => {
-    dispatch(setVoteByKeyValue('original', original));
-  }, [dispatch]);
+  useEffect(() => {
+    console.log(original);
+    const inputCount = original?.filter(v => !!v.episode && !!v.index).length || 0;
+    const errorCount = original?.filter(v => !!v.error).length || 0;
+
+    if (inputCount < 1)
+      setCanPass('필수 투표 항목입니다. 투표를 진행해주세요.');
+    else if (errorCount > 0)
+      setCanPass('투표 항목에 오류가 있습니다. 확인해주세요.');
+    else {
+      setCanPass(undefined);
+    }
+  }, [original, setCanPass])
+
+  const confirmEpisodeVote = useCallback((original: any[]) => {
+    setCanPass('투고 정보를 조회하고 있습니다. 잠시만 기다려주세요.');
+
+    dispatch(
+      setVoteByKeyValueThunk(
+        original,
+        'original',
+        true
+      )
+    )
+
+  }, [dispatch, setCanPass]);
 
   return (
     <CS.VoteCardsWrapper>

@@ -4,15 +4,14 @@ import { mainColor } from '../Colors';
 export const QuizItemWrapper = styled.div`
   display: inline-block;
   width: 100%;
-  padding: 20px 10px;
   box-sizing: border-box;
 `;
 
 export const QuizItemTitle = styled.p`
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 `;
 
 export const QuizItemLabel = styled.label`

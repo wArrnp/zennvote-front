@@ -10,6 +10,8 @@ export default function GetCurrentPageNumber(pageData:number): number {
       return 2;
     case PageData.VOTE:
       return 3;
+    case PageData.REVIEW:
+      return 4;
     default:
       return 1;
   };

@@ -1,4 +1,6 @@
 import VoteData from "../entity/VoteData";
+import EpisodeData from "../entity/EpisodeData";
+import FetchVoteEpisodes from "../controller/FetchVoteEpisodes";
 
 const initialState:VoteData = {
   problem: [],
@@ -122,10 +124,10 @@ const initialState:VoteData = {
     song: '',
     producer: ''
   }],
-  unit: [],
-  new: [],
-  grow: [],
-  master: [],
+  unit: ['', '', ''],
+  new: ['', '', ''],
+  grow: ['', '', ''],
+  master: ['', '', ''],
   custom: [],
   message: [],
 };
@@ -146,6 +148,18 @@ export const setVoteByKeyValue = (key: string, value:any[]) => ({
 export type VoteActionType = 
   ReturnType<typeof setVoteInit> |
   ReturnType<typeof setVoteByKeyValue>;
+
+export const setVoteByKeyValueThunk = (
+  episodeVoteData: EpisodeData[],
+  episodeName: string,
+  checkOverlap: boolean
+) => (dispatch: any, getState: any): void => {
+  const { vote } = getState();
+  FetchVoteEpisodes(episodeVoteData, checkOverlap, vote, episodeName)
+    .then(fetchedData => {
+      dispatch(setVoteByKeyValue(episodeName, fetchedData));
+    });
+}
 
 export default function reducer(state:VoteData = initialState, action:VoteActionType): VoteData {
   switch (action.type) {

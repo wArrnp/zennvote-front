@@ -1,20 +1,17 @@
-import QuizData from '../entity/QuizData';
+import axios from 'axios';
+import VoteData from '../entity/VoteData';
 
 export const getQuizDatas = () => {
-  return new Promise<QuizData[]>((resolve, reject) => {
-    resolve([
-      {
-        title: '퀴즈 아이템 테스트',
-        choices: ['구구구', '구구구구', '구구구구구'],
-      },
-      {
-        title: '두번째 퀴즈 아이템 테스트',
-        choices: ['멍멍멍', '멍멍멍멍', '멍멍멍멍멍', '멍멍멍멍멍멍'],
-      },
-      {
-        title: '세번째 퀴즈 아이템 테스트',
-        choices: ['야옹야옹', '야옹야옹야옹', '야옹야옹야옹야옹', '야옹야옹야옹야옹야옹', '야옹야옹야옹야옹야옹야옹'],
-      },
-    ]);
-  });
-};
+  return axios.get(process.env.REACT_APP_SERVER_URL + "/quiz").then(res => res.data.result);
+}
+
+export const getSelectVote = (selectName: string) => {
+  return axios.get(process.env.REACT_APP_SERVER_URL + "/choices/" + selectName).then(res => res.data.result);
+}
+
+export const postVote = (fetchData: {
+  email: string,
+  data: VoteData
+}) => {
+  return axios.post(process.env.REACT_APP_SERVER_URL + "/vote", fetchData)
+}
