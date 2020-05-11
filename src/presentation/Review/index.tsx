@@ -29,8 +29,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
         setWillFetchData({
             email: email,
             data: {
-                problem: [1,1,1,1,1,1,1,1,1],
-                // problem: quiz.selectedValues, 여기 주석 풀면된다, 윗줄 지우고
+                problem: quiz.selectedValues,
                 ...RemoveEmptyField(vote)
             }
         });
