@@ -38,7 +38,7 @@ const SleepVoteCard: React.FC<SleepVoteCardProps> = ({ setCanPass}) => {
     <CS.VoteCardsWrapper>
       <CS.VoteCardsIndex>첫번째 부문</CS.VoteCardsIndex>
       <CS.VoteCardsTitle>
-        그날, 나를 
+        <CS.VoteCardsTitleDefault>그날, 나를</CS.VoteCardsTitleDefault>
         <CS.VoteCardsTitleBold>잠 못 이루게 한 프로듀서 상</CS.VoteCardsTitleBold>
       </CS.VoteCardsTitle>
       <CS.VoteCardsDescription>

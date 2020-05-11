@@ -12,16 +12,19 @@ const GrowVoteCard: React.FC<GrowVoteCardProps> = ({ setCanPass }) => {
         <CS.VoteCardsWrapper>
             <CS.VoteCardsIndex>세번째 부문</CS.VoteCardsIndex>
             <CS.VoteCardsTitle>
-                나의 귀를 사로잡은 루키! 
-                <CS.VoteCardsTitleBold>신인상!</CS.VoteCardsTitleBold>
+                <CS.VoteCardsTitleBold>성장하는</CS.VoteCardsTitleBold>
+                <CS.VoteCardsTitleDefault>프로듀서 상</CS.VoteCardsTitleDefault>
             </CS.VoteCardsTitle>
             <CS.VoteCardsDescription>
-                이번 시즌에 처음 등장해서 내 머릿속에 꽂혀버린 매력적인 보이스의 소유자는 누구?<br />
-                다음 시즌에 대활약해주길 기대하는 그 프로듀서를 최소 2명~최대 3명까지 뽑아주세요.
+                데뷔 때부터 지금까지 정말 많이 <b>실력적으로나 퀄리티로나 <br />
+                성장했다는 게 느껴지는 P</b>의 닉네임을 적어주세요.
             </CS.VoteCardsDescription>
             <CS.VoteCardsDescription>
-                ※ 진지하게 내게 <b>임팩트</b>를 줬고, 노래나 보이스가 너무 괜찮았기에 <b>앞으로를 기대하는 사람</b>에게 투표해주세요.
-                나와 사전에 아는 사람이었다거나 하는 부차적인 이유가 고려되지 않았으면 합니다!
+                노래자랑을 본 지 얼마 안 된 분들도 계실 것이기 때문에 이 부문은 <b>스킵이 가능</b>합니다. <br />
+                다만 3시즌 이상 봐 오셨던 분이라면, 내가 응원하는 그 프로듀서에게 투표해주세요!
+            </CS.VoteCardsDescription>
+            <CS.VoteCardsDescription>
+                <b>5회 이상 투고했던 P에게만 투표가능, 명예P들 및 지난 시즌 성장상 수상자 레어레어는 투표불가</b>
             </CS.VoteCardsDescription>
             <CS.VoteCardsDivision />
           <SelectVote

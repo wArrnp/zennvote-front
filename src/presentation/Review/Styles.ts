@@ -10,6 +10,10 @@ export const ReviewContainer = styled.div`
     margin: 0 auto;
 `
 
+export const ReviewTitle = styled.h2`
+    margin-top: 24px;
+`
+
 export const ReviewContentContainer = styled.div`
     width: 80%;
     margin: 0 auto;

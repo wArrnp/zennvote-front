@@ -25,9 +25,10 @@ export const CustomVoteItemDeleteButton = styled.button`
     border-radius: 12px;
     height: 24px;
     width: 24px;
+    line-height: 0px;
     color: red;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 20px;
 `
 
 export const CustomVoteEditWrapper = styled.div`

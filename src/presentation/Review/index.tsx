@@ -66,10 +66,11 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 {willFetchData.email || 'test@no.mail'}
                             </S.ReviewContentItemWrapper>
 
+                            <S.ReviewTitle>부문상</S.ReviewTitle>
                             {/* 가창력 돌아보기 */}
                             <S.ReviewContentItemWrapper>
                                 <S.ReviewContentItemTitle>
-                                    가창력 상
+                                    가창력이 뛰어난 프로듀서 상
                                 </S.ReviewContentItemTitle>
                                 {
                                     willFetchData.data.pitch?.map((v) => (
@@ -88,7 +89,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                             {/* 음색 돌아보기 */}
                             <S.ReviewContentItemWrapper>
                                 <S.ReviewContentItemTitle>
-                                    음색 상
+                                    멋진 목소리의 프로듀서 상
                                 </S.ReviewContentItemTitle>
                                 {
                                     willFetchData.data.voice?.map((v) => (
@@ -107,7 +108,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                             {/* 예능 돌아보기 */}
                             <S.ReviewContentItemWrapper>
                                 <S.ReviewContentItemTitle>
-                                    예능 상
+                                    예능 프로듀서 상
                                 </S.ReviewContentItemTitle>
                                 {
                                     willFetchData.data.funny?.map((v) => (
@@ -126,7 +127,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                             {/* 컨텐츠 돌아보기 */}
                             <S.ReviewContentItemWrapper>
                                 <S.ReviewContentItemTitle>
-                                    컨텐츠 상
+                                    노래 그 이상♬
                                 </S.ReviewContentItemTitle>
                                 {
                                     willFetchData.data.content?.map((v) => (
@@ -145,7 +146,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                             {/* 원곡 재현 돌아보기 */}
                             <S.ReviewContentItemWrapper>
                                 <S.ReviewContentItemTitle>
-                                    원곡 재현 상
+                                    원곡재현상
                                 </S.ReviewContentItemTitle>
                                 {
                                     willFetchData.data.original?.map((v) => (
@@ -161,10 +162,11 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 }
                             </S.ReviewContentItemWrapper>
 
+                            <S.ReviewTitle>인기상</S.ReviewTitle>
                             {/* 잠이 안오는(인기상) 돌아보기 */}
                             <S.ReviewContentItemWrapper>
                                 <S.ReviewContentItemTitle>
-                                    잠이 안오는 상(인기상)
+                                    나를 잠 못 이루게 한 프로듀서 상
                                 </S.ReviewContentItemTitle>
                                 {
                                     willFetchData.data.sleep?.map((v) => (
@@ -175,22 +177,6 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                             <S.ReviewContentItemBottom>
                                                 {v.producer}
                                             </S.ReviewContentItemBottom>
-                                        </S.ReviewContentItem>
-                                    )) || ''
-                                }
-                            </S.ReviewContentItemWrapper>
-
-                            {/* 유닛상 돌아보기 */}
-                            <S.ReviewContentItemWrapper>
-                                <S.ReviewContentItemTitle>
-                                    유닛상
-                                </S.ReviewContentItemTitle>
-                                {
-                                    willFetchData.data.unit?.map((v) => (
-                                        <S.ReviewContentItem key={v}>
-                                            <S.ReviewContentItemTop>
-                                                {v}
-                                            </S.ReviewContentItemTop>
                                         </S.ReviewContentItem>
                                     )) || ''
                                 }
@@ -215,7 +201,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                             {/* 성장상 돌아보기 */}
                             <S.ReviewContentItemWrapper>
                                 <S.ReviewContentItemTitle>
-                                    성장상
+                                    성장하는 프로듀서 상
                                 </S.ReviewContentItemTitle>
                                 {
                                     willFetchData.data.grow?.map((v) => (
@@ -228,10 +214,27 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 }
                             </S.ReviewContentItemWrapper>
 
+                            {/* 유닛상 돌아보기 */}
+                            <S.ReviewContentItemWrapper>
+                                <S.ReviewContentItemTitle>
+                                    최고의 유닛상
+                                </S.ReviewContentItemTitle>
+                                {
+                                    willFetchData.data.unit?.map((v) => (
+                                        <S.ReviewContentItem key={v}>
+                                            <S.ReviewContentItemTop>
+                                                {v}
+                                            </S.ReviewContentItemTop>
+                                        </S.ReviewContentItem>
+                                    )) || ''
+                                }
+                            </S.ReviewContentItemWrapper>
+
+                            <S.ReviewTitle>대상</S.ReviewTitle>
                             {/* 대상 돌아보기 */}
                             <S.ReviewContentItemWrapper>
                                 <S.ReviewContentItemTitle>
-                                    대상
+                                    나의 명함을 주고싶은 프로듀서 상
                                 </S.ReviewContentItemTitle>
                                 {
                                     willFetchData.data.master?.map((v) => (
@@ -244,6 +247,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                 }
                             </S.ReviewContentItemWrapper>
 
+                            <S.ReviewTitle>덤</S.ReviewTitle>
                             {/* 내가 주고싶은 상 돌아보기 */}
                             <S.ReviewContentItemWrapper>
                                 <S.ReviewContentItemTitle>

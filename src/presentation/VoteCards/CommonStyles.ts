@@ -14,10 +14,19 @@ export const VoteCardsTitle = styled.h2`
   font-weight: normal;
   margin-top: 5px;
   margin-bottom: 10px;
+  margin-right: 10px;
 `
 
-export const VoteCardsTitleBold = styled.b`
-  margin-left: 10px;
+export const VoteCardsTitleDefault = styled.span`
+  margin-right: 10px;
+`
+export const VoteCardsTitleBold = styled.span`
+  font-weight: bold;
+  margin-right: 10px;
+`
+
+export const VoteCardSubtitle = styled.p`
+  margin: 16px 0 8px 0;
 `
 
 export const VoteCardsDescription = styled.p`

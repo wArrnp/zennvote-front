@@ -29,7 +29,8 @@ export const VoteDumItemDeleteButton = styled.button`
     width: 24px;
     color: red;
     font-weight: bold;
-    font-size: 14px;
+    line-height: 0px;
+    font-size: 20px;
 `
 
 export const VoteDumEditWrapper = styled.div`
