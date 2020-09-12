@@ -3,7 +3,7 @@ import EpisodeData from '../entity/EpisodeData';
 import VoteData from '../entity/VoteData';
 
 function FetchVoteEpisode(episode: number, index: number) {
-    return axios.get(process.env.REACT_APP_SERVER_URL + `/search/episode?episode=${episode}&index=${index}`)
+    return axios.get(process.env.REACT_APP_SERVER_URL + `/search/song/episode?episode=${episode}&index=${index}`)
         .then(res => res.data.result)
         .catch(err => {
             if(err.response.status === 404) {
@@ -51,13 +51,13 @@ export default function FetchVoteEpisodes(
                     willFetchData[index].error = "존재하지 않는 투고 정보입니다.";
                 } else {
                     if(value.votable) {
-                        willFetchData[index].song = value.song;
-                        willFetchData[index].producer = value.producer;
+                        willFetchData[index].song = value.title;
+                        willFetchData[index].producer = value.uploader;
                         willFetchData[index].error = '';
                         willFetchData[index].overlapped = false;
                     } else {
-                        willFetchData[index].song = value.song;
-                        willFetchData[index].producer = value.producer;
+                        willFetchData[index].song = value.title;
+                        willFetchData[index].producer = value.uploader;
                         willFetchData[index].error = "투표 대상이 아닙니다.";
                     }
                 }

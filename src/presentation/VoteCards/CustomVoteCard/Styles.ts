@@ -13,7 +13,7 @@ export const CustomVoteItemWrapper = styled.div`
 `
 
 export const CustomVoteItemEpisode = styled.span`
-    width: 80px;
+    width: 90px;
 `
 export const CustomVoteItemContent = styled.span`
     flex-grow: 1;

@@ -3,7 +3,7 @@ import EpisodeData from './EpisodeData';
 export default interface VoteData {
   [key: string]: any[] | undefined
 
-  problem?: number[];
+  quiz?: number[];
   pitch?: EpisodeData[];
   voice?: EpisodeData[];
   funny?: EpisodeData[];
@@ -11,7 +11,7 @@ export default interface VoteData {
   original?: EpisodeData[];
   sleep?: EpisodeData[];
   unit?: string[];
-  new?: string[];
+  rookie?: string[];
   grow?: string[];
   master?: string[];
   custom?: {

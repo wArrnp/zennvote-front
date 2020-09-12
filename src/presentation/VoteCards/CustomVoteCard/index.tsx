@@ -15,7 +15,7 @@ const CustomVoteCard:React.FC<CustomVoteCardProps> = ({ dumDataList, handleSubmi
     const [content, setContent] = useState<string>("");
 
     const onClickSubmitButton = useCallback((episode, index, content) => {
-        if(episode > 90 && episode < 101 && !!content) {
+        if(episode > 100 && episode < 111 && !!content) {
             handleSubmitEdit(episode, index, content);
             setEpisode(0);
             setIndex(0)

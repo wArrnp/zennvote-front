@@ -29,7 +29,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
         setWillFetchData({
             email: email,
             data: {
-                problem: quiz.selectedValues,
+                quiz: quiz.selectedValues,
                 ...RemoveEmptyField(vote)
             }
         });
@@ -188,7 +188,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                                     신인상
                                 </S.ReviewContentItemTitle>
                                 {
-                                    willFetchData.data.new?.map((v) => (
+                                    willFetchData.data.rookie?.map((v) => (
                                         <S.ReviewContentItem key={v}>
                                             <S.ReviewContentItemTop>
                                                 {v}

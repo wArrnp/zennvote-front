@@ -3,7 +3,7 @@ import EpisodeData from "../entity/EpisodeData";
 import FetchVoteEpisodes from "../controller/FetchVoteEpisodes";
 
 const initialState:VoteData = {
-  problem: [],
+  quiz: [],
   pitch:[{
       episode: 0,
       index: 0,
@@ -125,7 +125,7 @@ const initialState:VoteData = {
     producer: ''
   }],
   unit: ['', '', ''],
-  new: ['', '', ''],
+  rookie: ['', '', ''],
   grow: ['', '', ''],
   master: ['', '', ''],
   custom: [],
