@@ -42,7 +42,7 @@ const MessageVoteCard:React.FC<MessageVoteCardProps> = ({ dumDataList, handleSub
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="이름을 입력해주세요."/>
-                    <S.CustomVoteItemAddButton onClick={() => onClickSubmitButton(name, content)}>
+                    <S.CustomVoteItemAddButton onClick={() => onClickSubmitButton(name, content)} disabled={dumDataList.length === 5}>
                         +
                     </S.CustomVoteItemAddButton>
                 </S.VoteDumEditTop>

@@ -70,6 +70,10 @@ export const CustomVoteItemAddButton = styled.button`
     font-weight: bold;
     font-size: 26px;
     margin-left: 16px;
+    &:disabled {
+        border-color: gray;
+        color: gray;
+    }
 `
 
 export const VoteDumEditContent = styled.textarea`
