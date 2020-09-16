@@ -23,9 +23,9 @@ const VoteFivePartDescription: React.FC<VoteFivePartDescriptionProps> = ({ setCa
           투표하면 안 되는 대상
         </S.PartialVoteSubtitle>
         <S.PartialVoteList>
-          <li>1회 ~ 90회(이전 시즌) 출연자</li>
-          <li>라일락, 큐에, 류드, 처빕, 아토, EnRyu, 초코P, 모함과P, 히키코모리, 태민, 이브넴</li>
-          <li>위 11명이 참여한 참여한 유닛</li>
+          <li>1회 ~ 100회(이전 시즌) 출연자</li>
+          <li>라일락, 큐에, 류드, 처빕, 아토, EnRyu, 초코P, 모함과P, 히키코모리, 태민, 이브넴, 하루나</li>
+          <li>위 12명이 참여한 참여한 유닛</li>
           <li>오프닝</li>
         </S.PartialVoteList>
         <S.PartialVoteSubtitle>
