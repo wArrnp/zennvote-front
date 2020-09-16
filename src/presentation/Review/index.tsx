@@ -44,7 +44,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
     const handleSubmitVote = useCallback(() => {
         if(!isLoading) {
             postVote(willFetchData).then(res => {
-                if(res.status === 200 && res.data.succeed) {
+                if(res.status === 200 && res.data.success) {
                     setPageData(PageData.FINISH);
                 }
             })
