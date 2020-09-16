@@ -14,6 +14,12 @@ export const QuizItemTitle = styled.p`
   margin-bottom: 20px;
 `;
 
+export const QuizItemSubtitle = styled.p`
+  text-align: center;
+  padding: 1em;
+  border: 1px solid rgb(51,51,51);
+`;
+
 export const QuizItemLabel = styled.label`
   display: flex;
   cursor: pointer;

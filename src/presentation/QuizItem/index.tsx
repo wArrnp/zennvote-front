@@ -9,12 +9,20 @@ interface QuizItemProps extends QuizData {
   handleQuizSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const QuizItem = ({ index, title, contents: choices, selectedIndex, handleQuizSelect }: QuizItemProps) => {
+const QuizItem = ({ index, title: fullTitle, contents: choices, selectedIndex, handleQuizSelect }: QuizItemProps) => {
+  const [title, subtitle] = fullTitle.split('\n');
+
   return (
     <S.QuizItemWrapper>
       <S.QuizItemTitle>
         {index + 1}. {title}
       </S.QuizItemTitle>
+      {
+        subtitle &&
+        <S.QuizItemSubtitle>
+          {subtitle}
+        </S.QuizItemSubtitle>
+      }
       {
         choices.map((choice, index) => (
           <S.QuizItemLabel key={`${choice}-${index}`}>
