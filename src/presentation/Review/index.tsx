@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { useSnackbar } from 'notistack';
 import { useSelector } from 'react-redux';
 import { StoreState } from '../../module';
 import VoteData from '../../entity/VoteData';
@@ -25,6 +26,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
         quiz: state.quiz
     }));
     const [enableSubmitVote, setEnableSubmitVote] = useState<Boolean>(true);
+    const { enqueueSnackbar } = useSnackbar();
 
     useEffect(() => {
         setWillFetchData({
@@ -53,9 +55,10 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                 }
             }).catch(_ => {
                 setEnableSubmitVote(true);
+                enqueueSnackbar("예기치 못한 오류가 발생하였습니다. 잠시 후 재시도 해주세요.", { variant: "error" });
             })
         }
-    }, [isLoading, willFetchData, setPageData])
+    }, [isLoading, willFetchData, setPageData, enqueueSnackbar])
 
     return (
         <S.ReviewContainer>
