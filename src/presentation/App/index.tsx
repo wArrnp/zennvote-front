@@ -10,7 +10,7 @@ import * as S from './Styles';
 
 
 const App = () => {
-  const [ pageData, setPageData ] = useState(PageData.LANDING);
+  const [ pageData, setPageData ] = useState(PageData.REVIEW);
   const [ enableSearch ] = useState<boolean>(false);
   const [ isBack, setIsBack ] = useState<boolean>(false)
   const notistackRef = React.createRef<any>();

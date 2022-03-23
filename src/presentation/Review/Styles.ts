@@ -77,4 +77,9 @@ export const ReviewButton = styled.button`
   color: ${(props: ReviewButtonProps) => props.isNext ? 'white': "#333"};
   border: ${(props: ReviewButtonProps) => props.isNext ? 'none': '1px solid #333'};
   font-size: 16px;
+
+  &:disabled {
+    cursor: no-drop;
+    background-color: #ccc;
+  }
 `;

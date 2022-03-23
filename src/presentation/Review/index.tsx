@@ -24,6 +24,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
         email: state.email,
         quiz: state.quiz
     }));
+    const [enableSubmitVote, setEnableSubmitVote] = useState<Boolean>(true);
 
     useEffect(() => {
         setWillFetchData({
@@ -43,10 +44,15 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
 
     const handleSubmitVote = useCallback(() => {
         if(!isLoading) {
+            setEnableSubmitVote(false);
+
             postVote(willFetchData).then(res => {
                 if(res.status === 200 && res.data.success) {
                     setPageData(PageData.FINISH);
+                    setEnableSubmitVote(true);
                 }
+            }).catch(_ => {
+                setEnableSubmitVote(true);
             })
         }
     }, [isLoading, willFetchData, setPageData])
@@ -298,6 +304,7 @@ const Review: React.FC<ReviewProps> = ({ setPageData, setIsBack }) => {
                   <S.ReviewButton
                     isNext={true}
                     onClick={handleSubmitVote}
+                    disabled={!enableSubmitVote}
                     tabIndex={1}>
                     완료
                   </S.ReviewButton>
