@@ -11,19 +11,19 @@ jobs:
     steps:
       - name: Checkout code # 깃헙에 push 된 코드를 가상 깃허브 actions 환경에 가져온다 (?)
         uses: actions/checkout@master # 위 가상 환경으로 가져와주는 라이브러리다. 그 중 master 버전인 것 같다.
-      
+
       - name: Cache node modules # node_modules 캐싱하는 구문이다.
         uses: actions/cache@v1 # 이 역시 라이브러리
         with:
           path: node_modules
-          key: ${{ runner.OS }}-build-${{ hasFiles('**/package.lock.json') }}
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package.lock.json') }}
           restore-keys: |
             ${{ runner-OS }}-build-
             ${{ runner-OS }}-
 
       - name: Install Dependencies
         run: npm i
-      
+
       - name: Install AWS Cli
         run: npm i -g aws
 
@@ -35,6 +35,3 @@ jobs:
 
       - name: Deploy on AWS
         run: aws s3 sync ./build s3://zenn-vote-front-deploy --profile=zenn-vote-front --delete
-
-        
-      
